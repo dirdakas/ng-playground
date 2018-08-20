@@ -52,12 +52,11 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
           border: '2px solid black',
           padding: '4px'
         }),
-        animate(500),
-        style({
+        animate(400, style({
           backgroundColor: 'red',
           padding: '6px'
-        }),
-        animate(200)
+        })),
+        animate(700)
       ])
     ])
   ]
