@@ -32,10 +32,40 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
       transition('mousedown <=> clicked', animate(
         '1s 0.5s linear'
       ))
+    ]),
+    trigger('numberState', [
+      state('notSelected', style({
+        color: 'grey',
+        paddingLeft: '5px',
+        paddingRight: '5px',
+        border: '1px solid black'
+      })),
+      state('selected', style({
+        color: 'red',
+        backgroundColor: 'yellow',
+        paddingLeft: '5px',
+        paddingRight: '5px',
+        border: '1px solid lime'
+      })),
+      transition('notSelected => selected', [
+        style({
+          border: '2px solid black',
+          padding: '4px'
+        }),
+        animate(500),
+        style({
+          backgroundColor: 'red',
+          padding: '6px'
+        }),
+        animate(200)
+      ])
     ])
   ]
 })
 export class AppComponent {
+  simpleArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+  inputNumber: number;
+
   isRectangleClicked: boolean;
   isCircle: boolean;
 
