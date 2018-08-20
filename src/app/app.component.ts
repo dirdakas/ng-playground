@@ -40,6 +40,7 @@ export class AppComponent {
   isCircle: boolean;
 
   clickedOrange = 'default';
+  paragClick = 'default';
 
   isLoadingBarActive: boolean;
 
