@@ -54,3 +54,37 @@ export const setNumberStateTrigger = trigger('numberState', [
     animate(700)
   ])
 ]);
+
+export const setBubbleStateTrigger = trigger('bubbleState', [
+  state('default', style({
+    height: '50px',
+    width: '50px',
+    backgroundColor: 'lime',
+    borderRadius: '50%',
+    margin: '0 5px',
+    float: 'left',
+    display: 'inline-block'
+  })),
+  state('selected', style({
+    height: '50px',
+    width: '50px',
+    backgroundColor: 'yellow',
+    borderRadius: '50%',
+    border: '2px solid red',
+    margin: '0 5px',
+    float: 'left',
+    display: 'inline-block'
+  })),
+  transition('default => selected', [
+    style({
+      border: '2px solid black',
+      transform: 'scale(1.0)'
+    }),
+    animate(400, style({
+      backgroundColor: 'red',
+      border: '4px solid blue',
+      transform: 'scale(1.2)'
+    })),
+    animate(700)
+  ])
+]);

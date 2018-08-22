@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { clickedStateTrigger, setNumberStateTrigger } from './animations';
+import { clickedStateTrigger, setNumberStateTrigger, setBubbleStateTrigger } from './animations';
 
 @Component({
   selector: 'app-root',
@@ -7,10 +7,13 @@ import { clickedStateTrigger, setNumberStateTrigger } from './animations';
   styleUrls: ['./app.component.scss'],
   animations: [
     clickedStateTrigger,
-    setNumberStateTrigger
+    setNumberStateTrigger,
+    setBubbleStateTrigger
   ]
 })
 export class AppComponent {
+  selectedBubbleIndex: number;
+
   simpleArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
   inputNumber: number;
 
