@@ -1,6 +1,6 @@
 import { animate, style, transition, state, trigger } from '@angular/animations';
 
-export const clickedStateTrigger = trigger('clickedState', [
+const clickedStateTrigger = trigger('clickedState', [
   state('default', style({
     backgroundColor: 'orange',
     width: '150px',
@@ -28,7 +28,7 @@ export const clickedStateTrigger = trigger('clickedState', [
   ))
 ]);
 
-export const setNumberStateTrigger = trigger('numberState', [
+const setNumberStateTrigger = trigger('numberState', [
   state('notSelected', style({
     color: 'grey',
     paddingLeft: '5px',
@@ -55,7 +55,7 @@ export const setNumberStateTrigger = trigger('numberState', [
   ])
 ]);
 
-export const setBubbleStateTrigger = trigger('bubbleState', [
+const setBubbleStateTrigger = trigger('bubbleState', [
   state('default', style({
     height: '50px',
     width: '50px',
@@ -88,3 +88,9 @@ export const setBubbleStateTrigger = trigger('bubbleState', [
     animate(700)
   ])
 ]);
+
+export {
+  clickedStateTrigger,
+  setNumberStateTrigger,
+  setBubbleStateTrigger
+};
