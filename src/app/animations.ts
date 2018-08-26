@@ -1,4 +1,4 @@
-import { animate, style, transition, state, trigger } from '@angular/animations';
+import { animate, style, transition, state, trigger, group, keyframes } from '@angular/animations';
 
 const clickedStateTrigger = trigger('clickedState', [
   state('default', style({
@@ -89,8 +89,85 @@ const setBubbleStateTrigger = trigger('bubbleState', [
   ])
 ]);
 
+const showTextStateTrigger = trigger('showText', [
+  // void - when el is not in the DOM at start/end
+  // * wild card -> any state
+  // can replace 'void => *' with ':enter'
+  // can replace '* => void' with ':leave'
+  transition('void => *', [
+    style({
+      opacity: 0
+    }),
+    animate(1000, style({
+      opacity: 1
+    }))
+  ]),
+  transition('* => void', [
+    style({
+      opacity: 1
+    }),
+    animate(500, style({
+      opacity: 0
+    }))
+  ])
+]);
+
+const showListStateTrigger = trigger('showList', [
+  transition(':enter', [
+    style({
+      opacity: 0,
+      backgroundColor: 'white'
+    }),
+    group([
+      animate(1000, style({
+        opacity: 0.7
+      })),
+      animate(5000, keyframes([
+        style({
+          backgroundColor: 'white',
+          offset: 0
+        }),
+        style({
+          backgroundColor: 'lime',
+          offset: 0.8
+        }),
+        style({
+          backgroundColor: 'blue',
+          offset: 1
+        }),
+      ]))
+    ]),
+    animate(300, style({
+      backgroundColor: 'lightblue',
+      opacity: 1
+    }))
+  ]),
+  transition(':leave', [
+    style({
+      opacity: 1
+    }),
+    animate(500, style({
+      opacity: 0
+    }))
+  ])
+]);
+
+const animateStateTrigger = trigger('animateState', [
+  transition('* => *', [
+    animate(500, style({
+      width: 0
+    })),
+    animate(600, style({
+      width: '*'
+    }))
+  ])
+]);
+
 export {
   clickedStateTrigger,
   setNumberStateTrigger,
-  setBubbleStateTrigger
+  setBubbleStateTrigger,
+  showTextStateTrigger,
+  animateStateTrigger,
+  showListStateTrigger
 };

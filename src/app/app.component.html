@@ -6,6 +6,28 @@
   <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
 </div>
 
+<button (click)="addElement()">Add element</button>
+<div *ngFor="let item of addElementResults;"
+     @showList
+     (@showList.start)="onStart($event)"
+     (@showList.done)="onDone($event)"
+     class="visible-text">{{ item }}</div>
+<hr />
+
+<button (click)="width = width - 50">Shrink</button>
+<button (click)="animate = !animate">Animate === {{ animate }}</button>
+<p class="visible-text"
+   [ngStyle]="{ 'width.px': width }"
+   [@animateState]="animate ? 'animated' : 'notAnimated'">Shrink me</p>
+
+<hr>
+
+<button (click)="isShown = !isShown">Toggle element</button>
+<p *ngIf="isShown"
+   @showText
+   class="visible-text">You can see me now !!!</p>
+
+<hr />
 
 <!-- Select target -->
 <div style="display: inline-block; height: 100px;">
