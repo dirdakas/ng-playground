@@ -97,7 +97,27 @@
   margin: 10px 0;
 }
 
-.a {
+.move-left {
+  width: 500px;
+  margin: auto;
+  transition: all 0.2s linear;
+}
+
+.panel-heading {
+  background: lightgray;
+  border: 1px solid darkgrey;
+}
+
+.panel-default {
+  border: 10px solid paleturquoise;
+  padding: 10px;
+}
+
+.moving-left {
+  border: 1px solid darkblue;
+  background-color: lightblue;
+  padding: 10px;
+  margin: 10px 0;
   width: 500px;
   margin: auto;
 }

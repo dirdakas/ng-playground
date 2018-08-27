@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
-import { AnimationEvent } from '@angular/animations';
+import {
+  AnimationEvent,
+  AnimationBuilder,
+  style,
+  animate
+} from '@angular/animations';
 
 import {
   clickedStateTrigger,
@@ -7,7 +12,9 @@ import {
   setBubbleStateTrigger,
   showTextStateTrigger,
   animateStateTrigger,
-  showListStateTrigger
+  showListStateTrigger,
+  panelStateTrigger,
+  staggerListAnimationTrigger
 } from './animations';
 
 @Component({
@@ -20,10 +27,23 @@ import {
     setBubbleStateTrigger,
     showTextStateTrigger,
     animateStateTrigger,
-    showListStateTrigger
+    showListStateTrigger,
+    panelStateTrigger,
+    staggerListAnimationTrigger
   ]
 })
 export class AppComponent {
+  showStaggerList = false;
+  staggerAnimationList = [
+    Math.random(),
+    Math.random(),
+    Math.random()
+  ];
+  showPanel = false;
+  showParagraph = true;
+
+  left = 0;
+  bLeft = 0;
 
   addElementResults = [];
   width = 700;
@@ -43,6 +63,30 @@ export class AppComponent {
   paragClick = 'default';
 
   isLoadingBarActive: boolean;
+
+  constructor(
+    private animationBuilder: AnimationBuilder
+  ) { }
+
+  moveLeftProg(element: any) {
+    const animation = this.animationBuilder.build([
+      style({
+        transform: `translateX(-${this.bLeft}px)`
+      }),
+      animate(300, style({
+        transform: `translateX(-${this.bLeft + 20}px)`
+      }))
+    ]);
+
+    const player = animation.create(element);
+    player.play();
+    this.bLeft += 20;
+  }
+
+  onMove() {
+    this.left += 20;
+    console.log(this.left);
+  }
 
   onStart(event: AnimationEvent) {
     console.log('start', event);
