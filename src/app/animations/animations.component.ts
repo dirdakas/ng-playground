@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostBinding } from '@angular/core';
 
 import {
   AnimationEvent,
@@ -18,6 +18,8 @@ import {
   staggerListAnimationTrigger
 } from './animations';
 
+import { routeFadeStateTrigger } from '../shared/route-animations';
+
 @Component({
   selector: 'app-animation-page',
   templateUrl: './animations.component.html',
@@ -30,10 +32,13 @@ import {
     animateStateTrigger,
     showListStateTrigger,
     panelStateTrigger,
-    staggerListAnimationTrigger
+    staggerListAnimationTrigger,
+    // routeFadeStateTrigger
   ]
 })
 export class AnimationsComponent {
+  // @HostBinding('@routeFadeState') routeAnimation = true;
+
   showStaggerList = false;
   staggerAnimationList = [
     Math.random(),

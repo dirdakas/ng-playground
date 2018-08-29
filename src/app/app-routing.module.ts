@@ -6,8 +6,8 @@ import { AnimationsComponent } from './animations/animations.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
-  { path: 'animations', component: AnimationsComponent }
+  { path: 'home', component: HomeComponent, data: { animations: { page: 'homePage' } } },
+  { path: 'animations', component: AnimationsComponent, data: { animations: { page: 'animationsPage' } } }
 ];
 
 @NgModule({
