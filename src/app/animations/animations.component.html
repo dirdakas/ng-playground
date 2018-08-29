@@ -1,0 +1,131 @@
+<div class="moving-left" #moveLeft></div>
+<button (click)="moveLeftProg(moveLeft)"> Move Left </button>
+<hr />
+
+<button (click)="showStaggerList = !showStaggerList;">Show stagger list</button>
+
+<div *ngIf="showStaggerList"
+     [@staggerList]="showStaggerList">
+  <div *ngFor="let item of staggerAnimationList;"
+       class="visible-text">
+      {{ item }}
+  </div>
+</div>
+
+<hr />
+
+<!-- Query -->
+<div class="container">
+  <div class="row col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+    <h1 class="text-center">Angular 4.2 Animations</h1>
+    <hr>
+    <button (click)="showPanel = !showPanel" class="btn btn-primary">Show Panel</button>
+    <hr>
+    <div class="panel panel-default" *ngIf="showPanel" [@panelState]="showParagraph">
+      <div class="panel-heading">Let's see what query does</div>
+      <div class="panel-body">
+        <p>query() gives you a lot of flexibility!</p>
+        <p *ngIf="showParagraph">You'll see!</p>
+      </div>
+      <div class="panel-footer">
+        <button (click)="showParagraph = !showParagraph" class="btn btn-primary">Toggle second paragraph</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr />
+
+<h1 class="text-center">Angular2 Animations</h1>
+
+<div class="visible-text move-left" [ngStyle]="{'transform': 'translateX(-' + left + 'px)'}"></div>
+<button (click)="onMove()"> Move Left </button>
+
+<hr />
+
+<button (click)="addElement()">Add element</button>
+<div *ngFor="let item of addElementResults;"
+     @showList
+     (@showList.start)="onStart($event)"
+     (@showList.done)="onDone($event)"
+     class="visible-text">{{ item }}</div>
+<hr />
+
+<button (click)="width = width - 50">Shrink</button>
+<button (click)="animate = !animate">Animate === {{ animate }}</button>
+<p class="visible-text"
+   [ngStyle]="{ 'width.px': width }"
+   [@animateState]="animate ? 'animated' : 'notAnimated'">Shrink me</p>
+
+<hr>
+
+<button (click)="isShown = !isShown">Toggle element</button>
+<p *ngIf="isShown"
+   @showText
+   class="visible-text">You can see me now !!!</p>
+
+<hr />
+
+<!-- Select target -->
+<div style="display: inline-block; height: 100px;">
+  <div class="right-side">
+    <div *ngFor="let el of simpleArray; let index = index;"
+          class="bubble"
+          [@bubbleState]="(selectedBubbleIndex == index) ? 'selected' : 'default'"
+          (click)="selectedBubbleIndex = index">
+    </div>
+
+    <span style="margin-left: 30px">
+      Selected index = {{ selectedBubbleIndex }}
+    </span>
+  </div>
+  
+  <!-- Number input 0..9 multi-step transition -->
+  <div class="left-side">
+    <input type="number" (input)="inputNumber = $event.target.value"/>
+    
+    <span *ngFor="let el of simpleArray;"
+          [@numberState]="(inputNumber == el) ? 'selected' : 'notSelected'">{{ el }}</span>
+  </div>
+</div>
+
+<hr />
+
+<!-- Click and mousedown -->
+<div
+  [@clickedState]="clickedOrange"
+  (click)="changeOrange()"
+  (mousedown)="clickedOrange = 'mousedown'">
+</div>
+
+<!-- Click -->
+<p (click)="paragClick = 'clicked'"
+   [@clickedState]="paragClick"> Some text</p>
+
+<hr />
+
+<!-- Click -->
+<button (click)="loadingBarClicked()">Init loading bar!</button>
+<div class="loading-bar" *ngIf="isLoadingBarActive">
+  <div class="loading-bar-element"></div>
+</div>
+
+<hr />
+
+<!-- Click -->
+<div class="rectangle"
+     (click)="isRectangleClicked = !isRectangleClicked"
+     [ngStyle]="{ backgroundColor: isRectangleClicked ? 'lime' : 'blue' }"
+     [ngClass]="{ clickedRectangle: isRectangleClicked }">
+</div>
+
+<hr />
+
+<!-- Click -->
+<div class="circle"
+     (click)="isCircle = !isCircle"
+     [ngStyle]="{ backgroundColor: isCircle ? 'lime' : 'blue' }"
+     [ngClass]="{ clickedCircle: isCircle }">
+</div>
+
+<hr />

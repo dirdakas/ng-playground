@@ -1,0 +1,126 @@
+:host {
+  .rectangle {
+    width: 200px;
+    height: 200px;
+    background-color: blue;
+    transition: background-color 0.7s ease-out 0.3s,
+                width 0.5s ease-in 0.4s;
+    /*
+      ease-out (start fast, end slow): A -------- 2s -- 3s B
+      ease-in (start slow, end fast): A -- 1s -------- 3s B
+      linear (constant speed): A ---------- 3s B
+    */
+  }
+  
+  .clickedRectangle {
+    width: 450px;
+  }
+  
+  .circle {
+    width: 300px;
+    height: 300px;
+    background-color: blue;
+  }
+  
+  .clickedCircle {
+    animation: makeCircle 2s linear forwards;
+  }
+  
+  .loading-bar {
+    width: 500px;
+    height: 25px;
+    border: 1px solid black;
+    margin: auto;
+    box-sizing: content-box;
+  
+    .loading-bar-element {
+      width: 0;
+      height: 25px;
+      background-color: deepskyblue;
+      animation: loading 1s linear infinite;
+    }
+  }
+  
+  @keyframes makeCircle {
+    0% {
+      transform: translateX(0) scale(1);
+      opacity: 1;
+      border-radius: 100%;
+    }
+  
+    25% {
+      transform: translateX(100px) scale (0.8);
+      opacity: 0.8;
+      border-radius: 85%;
+    }
+  
+    50% {
+      transform: translateX(200px) scale(0.6);
+      opacity: 0.6;
+      border-radius: 70%;
+    }
+  
+    75% {
+      transform: translateX(250px) scale(0.5);
+      opacity: 0.5;
+      border-radius: 60%;
+    }
+  
+    100% {
+      transform: translateX(300px) scale(0.4);
+      opacity: 1;
+      border-radius: 50%;
+    }
+  }
+  
+  @keyframes loading {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 100%;
+    }
+  }
+  
+  .right-side {
+    float: right;
+  }
+  
+  .left-side {
+    float: left;
+    margin-right: 50px;
+  }
+  
+  .visible-text {
+    border: 1px solid darkblue;
+    background-color: lightblue;
+    padding: 10px;
+    margin: 10px 0;
+  }
+  
+  .move-left {
+    width: 500px;
+    margin: auto;
+    transition: all 0.2s linear;
+  }
+  
+  .panel-heading {
+    background: lightgray;
+    border: 1px solid darkgrey;
+  }
+  
+  .panel-default {
+    border: 10px solid paleturquoise;
+    padding: 10px;
+  }
+  
+  .moving-left {
+    border: 1px solid darkblue;
+    background-color: lightblue;
+    padding: 10px;
+    margin: 10px 0;
+    width: 500px;
+    margin: auto;
+  }
+  
+}
