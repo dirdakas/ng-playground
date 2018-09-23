@@ -1,0 +1,9 @@
+<div *ngIf="users$ | async as users else loadingUsers">
+  <span *ngFor="let user of users">
+    Login: {{ user.login }}
+  </span>
+</div>
+
+<ng-template #loadingUsers>
+  Loading.....
+</ng-template>

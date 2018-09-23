@@ -8,17 +8,20 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { AnimationsComponent } from './animations/animations.component';
 import { AppRoutingModule } from './app-routing.module';
+import { RxjsPageComponent } from './rxjs-page/rxjs-page.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    AnimationsComponent
+    AnimationsComponent,
+    RxjsPageComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     AppRoutingModule
   ],
