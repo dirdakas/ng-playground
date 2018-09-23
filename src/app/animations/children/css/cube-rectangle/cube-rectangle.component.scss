@@ -1,0 +1,16 @@
+.rectangle {
+  width: 200px;
+  height: 200px;
+  background-color: blue;
+  transition: background-color 0.7s ease-out 0.3s,
+              width 0.5s ease-in 0.4s;
+  /*
+    ease-out (start fast, end slow): A -------- 2s -- 3s B
+    ease-in (start slow, end fast): A -- 1s -------- 3s B
+    linear (constant speed): A ---------- 3s B
+  */
+}
+
+.clickedRectangle {
+  width: 450px;
+}

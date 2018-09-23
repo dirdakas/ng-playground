@@ -1,0 +1,5 @@
+<div class="circle"
+     (click)="isCircle = !isCircle"
+     [ngStyle]="{ backgroundColor: isCircle ? 'lime' : 'blue' }"
+     [ngClass]="{ clickedCircle: isCircle }">
+</div>

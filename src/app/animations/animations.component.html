@@ -59,77 +59,6 @@
 
 <hr>
 
-<button (click)="isShown = !isShown">Toggle element</button>
-<p *ngIf="isShown"
-   @showText
-   class="visible-text">You can see me now !!!</p>
-
-<hr />
-
-<!-- Select target -->
-<div style="display: inline-block; height: 100px;">
-  <div class="right-side">
-    <div *ngFor="let el of simpleArray; let index = index;"
-          class="bubble"
-          [@bubbleState]="(selectedBubbleIndex == index) ? 'selected' : 'default'"
-          (click)="selectedBubbleIndex = index">
-    </div>
-
-    <span style="margin-left: 30px">
-      Selected index = {{ selectedBubbleIndex }}
-    </span>
-  </div>
-  
-  <!-- Number input 0..9 multi-step transition -->
-  <div class="left-side">
-    <input type="number" (input)="inputNumber = $event.target.value"/>
-    
-    <span *ngFor="let el of simpleArray;"
-          [@numberState]="(inputNumber == el) ? 'selected' : 'notSelected'">{{ el }}</span>
-  </div>
-</div>
-
-<hr />
-
-<!-- Click and mousedown -->
-<div
-  [@clickedState]="clickedOrange"
-  (click)="changeOrange()"
-  (mousedown)="clickedOrange = 'mousedown'">
-</div>
-
-<!-- Click -->
-<p (click)="paragClick = 'clicked'"
-   [@clickedState]="paragClick"> Some text</p>
-
-<hr />
-
-<!-- Click -->
-<button (click)="loadingBarClicked()">Init loading bar!</button>
-<div class="loading-bar" *ngIf="isLoadingBarActive">
-  <div class="loading-bar-element"></div>
-</div>
-
-<hr />
-
-<!-- Click -->
-<div class="rectangle"
-     (click)="isRectangleClicked = !isRectangleClicked"
-     [ngStyle]="{ backgroundColor: isRectangleClicked ? 'lime' : 'blue' }"
-     [ngClass]="{ clickedRectangle: isRectangleClicked }">
-</div>
-
-<hr />
-
-<!-- Click -->
-<div class="circle"
-     (click)="isCircle = !isCircle"
-     [ngStyle]="{ backgroundColor: isCircle ? 'lime' : 'blue' }"
-     [ngClass]="{ clickedCircle: isCircle }">
-</div>
-
-<hr />
-
 <div class="button-container" id="myButton">
   <div class="button-icon-container">
     <img src="https://placeholder.pics/svg/100x100/7AFFA6/000000/ICON">
@@ -138,4 +67,21 @@
   <div class="button-text-container">
     <span>Here comes some text.</span>
   </div>
+</div>
+
+
+<div *ngFor="let animation of animations; let index = index;">
+    <button class="collapsible" (click)="toggleCollapsible(animation, index)">
+        <b>Toggle to show/hide: </b>
+        <i>{{ animations[index].description }}</i>
+    </button>
+    <div class="content" #animation style="display: none;">
+        <app-rectangle-circle *ngIf="0 === index && animations[0].isActive" class="component-content-wrapper"></app-rectangle-circle>
+        <app-cube-rectangle *ngIf="1 === index && animations[1].isActive" class="component-content-wrapper"></app-cube-rectangle>
+        <app-simple-loading-bar *ngIf="2 === index && animations[2].isActive" class="component-content-wrapper"></app-simple-loading-bar>
+        <app-cube-rectangle-orange *ngIf="3 === index && animations[3].isActive" class="component-content-wrapper"></app-cube-rectangle-orange>
+        <app-number-select *ngIf="4 === index && animations[4].isActive" class="component-content-wrapper"></app-number-select>
+        <app-bubble-select *ngIf="5 === index && animations[5].isActive" class="component-content-wrapper"></app-bubble-select>
+        <app-toggle-element *ngIf="6 === index && animations[6].isActive" class="component-content-wrapper"></app-toggle-element>
+    </div>
 </div>

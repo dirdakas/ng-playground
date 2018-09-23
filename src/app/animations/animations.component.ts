@@ -8,10 +8,6 @@ import {
 } from '@angular/animations';
 
 import {
-  clickedStateTrigger,
-  setNumberStateTrigger,
-  setBubbleStateTrigger,
-  showTextStateTrigger,
   animateStateTrigger,
   showListStateTrigger,
   panelStateTrigger,
@@ -20,15 +16,19 @@ import {
 
 import { routeFadeStateTrigger } from '../shared/route-animations';
 
+import { RectangleCircleComponent } from './children/css/rectangle-circle/rectangle-circle.component';
+import { CubeRectangleComponent } from './children/css/cube-rectangle/cube-rectangle.component';
+import { SimpleLoadingBarComponent } from './children/css/simple-loading-bar/simple-loading-bar.component';
+import { CubeRectangleOrangeComponent } from './children/angular-animations/cube-rectangle-orange/cube-rectangle-orange.component';
+import { NumberSelectComponent } from './children/angular-animations/number-select/number-select.component';
+import { BubbleSelectComponent } from './children/angular-animations/bubble-select/bubble-select.component';
+import { ToggleElementComponent } from './children/angular-animations/toggle-element/toggle-element.component';
+
 @Component({
   selector: 'app-animation-page',
   templateUrl: './animations.component.html',
   styleUrls: ['./animations.component.scss'],
   animations: [
-    clickedStateTrigger,
-    setNumberStateTrigger,
-    setBubbleStateTrigger,
-    showTextStateTrigger,
     animateStateTrigger,
     showListStateTrigger,
     panelStateTrigger,
@@ -37,6 +37,36 @@ import { routeFadeStateTrigger } from '../shared/route-animations';
   ]
 })
 export class AnimationsComponent {
+  animations = [
+    {
+      component: RectangleCircleComponent,
+      description: 'On click rectangle will move to the right while transforming into circle'
+    },
+    {
+      component: CubeRectangleComponent,
+      description: 'On click cube will expand to rectangle'
+    },
+    {
+      component: SimpleLoadingBarComponent,
+      description: 'On click for 3seconds there will be loading bar animation, which is repeatable'
+    },
+    {
+      component: CubeRectangleOrangeComponent,
+      description: 'On click one cube will become rentagle, other one is multi-clickble for animation'
+    },
+    {
+      component: NumberSelectComponent,
+      description: 'On number input 0..9 number animates, which was selected'
+    },
+    {
+      component: BubbleSelectComponent,
+      description: 'On bubble click - it would animate and become selected'
+    },
+    {
+      component: ToggleElementComponent,
+      description: 'On click element will be created/destroyed will animation for appear/dissapear'
+    }
+  ];
   // @HostBinding('@routeFadeState') routeAnimation = true;
 
   showStaggerList = false;
@@ -54,21 +84,6 @@ export class AnimationsComponent {
   addElementResults = [];
   width = 700;
   animate = false;
-
-  isShown: boolean;
-
-  selectedBubbleIndex: number;
-
-  simpleArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-  inputNumber: number;
-
-  isRectangleClicked: boolean;
-  isCircle: boolean;
-
-  clickedOrange = 'default';
-  paragClick = 'default';
-
-  isLoadingBarActive: boolean;
 
   constructor(private animationBuilder: AnimationBuilder) { }
 
@@ -104,29 +119,13 @@ export class AnimationsComponent {
     this.addElementResults.push(Math.random());
   }
 
-  loadingBarClicked() {
-    this.isLoadingBarActive = true;
-
-    setTimeout(() => {
-      this.isLoadingBarActive = false;
-    }, 3000);
-  }
-
-  changeOrange() {
-    switch (this.clickedOrange) {
-      case 'default':
-        this.clickedOrange = 'clicked';
-        break;
-      case 'clicked':
-        this.clickedOrange = 'default';
-        break;
-      case 'mousedown':
-        this.clickedOrange = 'clicked';
-        break;
-    }
-
-    if (this.clickedOrange === 'clicked') {
-      setTimeout(() => { this.clickedOrange = 'default'; } , 3000);
+  toggleCollapsible(element: HTMLElement, index: number) {
+    if (element.style.display === 'none') {
+      element.style.display = 'block';
+      this.animations[index]['isActive'] = true;
+    } else {
+      element.style.display = 'none';
+      this.animations[index]['isActive'] = false;
     }
   }
 }

@@ -1,0 +1,5 @@
+<div class="rectangle"
+     (click)="isRectangleClicked = !isRectangleClicked"
+     [ngStyle]="{ backgroundColor: isRectangleClicked ? 'lime' : 'blue' }"
+     [ngClass]="{ clickedRectangle: isRectangleClicked }">
+</div>

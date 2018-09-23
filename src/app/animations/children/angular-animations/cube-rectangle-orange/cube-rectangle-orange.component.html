@@ -1,0 +1,9 @@
+<div
+  [@clickedState]="clickedOrange"
+  (click)="changeOrange()"
+  (mousedown)="clickedOrange = 'mousedown'">
+</div>
+
+<!-- Click -->
+<p (click)="paragClick = 'clicked'"
+   [@clickedState]="paragClick"></p>

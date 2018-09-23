@@ -1,0 +1,6 @@
+<div *ngFor="let el of simpleArray; let index = index;"
+     [@bubbleState]="(selectedBubbleIndex == index) ? 'selected' : 'default'"
+     (click)="selectedBubbleIndex = index">
+</div>
+
+<span>Selected index = {{ selectedBubbleIndex }}</span>

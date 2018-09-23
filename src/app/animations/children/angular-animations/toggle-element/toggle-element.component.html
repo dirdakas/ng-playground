@@ -1,0 +1,4 @@
+<button (click)="isShown = !isShown">Toggle element</button>
+<p *ngIf="isShown"
+   @showText
+   class="visible-text">You can see me now !!!</p>

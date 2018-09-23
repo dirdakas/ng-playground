@@ -1,0 +1,6 @@
+<div>
+    <input type="number" (input)="inputNumber = $event.target.value"/>
+    
+    <span *ngFor="let el of simpleArray;"
+          [@numberState]="(inputNumber == el) ? 'selected' : 'notSelected'">{{ el }}</span>
+</div>
