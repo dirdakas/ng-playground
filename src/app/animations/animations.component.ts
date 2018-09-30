@@ -7,13 +7,6 @@ import {
   animate
 } from '@angular/animations';
 
-import {
-  animateStateTrigger,
-  showListStateTrigger,
-  panelStateTrigger,
-  staggerListAnimationTrigger
-} from './animations';
-
 import { routeFadeStateTrigger } from '../shared/route-animations';
 
 import { RectangleCircleComponent } from './children/css/rectangle-circle/rectangle-circle.component';
@@ -23,21 +16,29 @@ import { CubeRectangleOrangeComponent } from './children/angular-animations/cube
 import { NumberSelectComponent } from './children/angular-animations/number-select/number-select.component';
 import { BubbleSelectComponent } from './children/angular-animations/bubble-select/bubble-select.component';
 import { ToggleElementComponent } from './children/angular-animations/toggle-element/toggle-element.component';
+import { ShrinkLeftComponent } from './children/angular-animations/shrink-left/shrink-left.component';
+import { HoverExpandLeftComponent } from './children/css/hover-expand-left/hover-expand-left.component';
+import { CreateElementComponent } from './children/angular-animations/create-element/create-element.component';
+import { MoveLeftComponent } from './children/css/move-left/move-left.component';
+import { MoveLeftProgComponent } from './children/angular-animations/move-left-prog/move-left-prog.component';
+import { CreateRemoveElementComponent } from './children/angular-animations/create-remove-element/create-remove-element.component';
+import { StaggerAnimationComponent } from './children/angular-animations/stagger-animation/stagger-animation.component';
+
+interface AnimationObject {
+  component: any;
+  description: string;
+}
 
 @Component({
   selector: 'app-animation-page',
   templateUrl: './animations.component.html',
   styleUrls: ['./animations.component.scss'],
   animations: [
-    animateStateTrigger,
-    showListStateTrigger,
-    panelStateTrigger,
-    staggerListAnimationTrigger,
     // routeFadeStateTrigger
   ]
 })
 export class AnimationsComponent {
-  animations = [
+  cssAnimationList: Array<AnimationObject> = [
     {
       component: RectangleCircleComponent,
       description: 'On click rectangle will move to the right while transforming into circle'
@@ -50,6 +51,17 @@ export class AnimationsComponent {
       component: SimpleLoadingBarComponent,
       description: 'On click for 3seconds there will be loading bar animation, which is repeatable'
     },
+    {
+      component: HoverExpandLeftComponent,
+      description: 'On hover rectangle will expand and show hidden text'
+    },
+    {
+      component: MoveLeftComponent,
+      description: 'On click element will move to left'
+    }
+  ];
+
+  angular2AnimationList: Array<AnimationObject> = [
     {
       component: CubeRectangleOrangeComponent,
       description: 'On click one cube will become rentagle, other one is multi-clickble for animation'
@@ -65,67 +77,63 @@ export class AnimationsComponent {
     {
       component: ToggleElementComponent,
       description: 'On click element will be created/destroyed will animation for appear/dissapear'
+    },
+    {
+      component: ShrinkLeftComponent,
+      description: 'On click it will shrink/decrease to left direction'
+    },
+    {
+      component: CreateElementComponent,
+      description: 'On click it will create new element and animates it\'s appearing'
     }
   ];
+
+  angular4AnimationList: Array<AnimationObject> = [
+    {
+      component: MoveLeftProgComponent,
+      description: 'On click will move element to the left programically'
+    },
+    {
+      component: CreateRemoveElementComponent,
+      description: 'On element create/remove it would animate. Grouped query elements'
+    },
+    {
+      component: StaggerAnimationComponent,
+      description: 'On create -> will create elements with animations using stagger'
+    }
+  ];
+
   // @HostBinding('@routeFadeState') routeAnimation = true;
 
-  showStaggerList = false;
-  staggerAnimationList = [
-    Math.random(),
-    Math.random(),
-    Math.random()
-  ];
-  showPanel = false;
-  showParagraph = true;
+  constructor() { }
 
-  left = 0;
-  bLeft = 0;
-
-  addElementResults = [];
-  width = 700;
-  animate = false;
-
-  constructor(private animationBuilder: AnimationBuilder) { }
-
-  moveLeftProg(element: any) {
-    const animation = this.animationBuilder.build([
-      style({
-        transform: `translateX(-${this.bLeft}px)`
-      }),
-      animate(300, style({
-        transform: `translateX(-${this.bLeft + 20}px)`
-      }))
-    ]);
-
-    const player = animation.create(element);
-    player.play();
-    this.bLeft += 20;
-  }
-
-  onMove() {
-    this.left += 20;
-    console.log(this.left);
-  }
-
-  onStart(event: AnimationEvent) {
-    console.log('start', event);
-  }
-
-  onDone(event: AnimationEvent) {
-    console.log('done', event);
-  }
-
-  addElement() {
-    this.addElementResults.push(Math.random());
-  }
-
-  toggleCollapsible(element: HTMLElement, index: number) {
+  toggleCollapsible(element: HTMLElement, index: number, list: Array<AnimationObject>) {
     if (element.style.display === 'none') {
       element.style.display = 'block';
-      this.animations[index]['isActive'] = true;
+      list[index]['isActive'] = true;
     } else {
       element.style.display = 'none';
-      this.animations[index]['isActive'] = false;
+      list[index]['isActive'] = false;
+    }
+  }
+
+  toggleCss(element: HTMLElement, index: number): void {
+    this.toggleCollapsible(element, index, this.cssAnimationList);
+  }
+
+  toggleAngular2Animation(element: HTMLElement, index: number): void {
+    this.toggleCollapsible(element, index, this.angular2AnimationList);
+  }
+
+  toggleAngular4Animation(element: HTMLElement, index: number): void {
+    this.toggleCollapsible(element, index, this.angular4AnimationList);
+  }
+
+  showContent(element: HTMLElement) {
+    if (element.style.display === 'none') {
+      element.style.display = 'block';
+    } else {
+      element.style.display = 'none';
     }
   }
 }

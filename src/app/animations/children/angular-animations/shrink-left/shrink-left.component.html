@@ -1,0 +1,5 @@
+<button (click)="width = width - 50">Shrink</button>
+<button (click)="animate = !animate">Animate === {{ animate }}</button>
+<p class="visible-text"
+   [ngStyle]="{ 'width.px': width }"
+   [@animateState]="animate ? 'animated' : 'notAnimated'">Shrink me</p>

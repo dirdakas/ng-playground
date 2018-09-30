@@ -1,0 +1,6 @@
+<button (click)="addElement()">Add element</button>
+<div *ngFor="let item of addElementResults;"
+     @showList
+     (@showList.start)="onStart($event)"
+     (@showList.done)="onDone($event)"
+     class="visible-text">{{ item }}</div>

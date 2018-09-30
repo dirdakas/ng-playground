@@ -1,87 +1,55 @@
-<div class="moving-left" #moveLeft></div>
-<button (click)="moveLeftProg(moveLeft)"> Move Left </button>
-<hr />
-
-<button (click)="showStaggerList = !showStaggerList;">Show stagger list</button>
-
-<div *ngIf="showStaggerList"
-     [@staggerList]="showStaggerList">
-  <div *ngFor="let item of staggerAnimationList;"
-       class="visible-text">
-      {{ item }}
-  </div>
-</div>
-
-<hr />
-
-<!-- Query -->
-<div class="container">
-  <div class="row col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-    <h1 class="text-center">Angular 4.2 Animations</h1>
-    <hr>
-    <button (click)="showPanel = !showPanel" class="btn btn-primary">Show Panel</button>
-    <hr>
-    <div class="panel panel-default" *ngIf="showPanel" [@panelState]="showParagraph">
-      <div class="panel-heading">Let's see what query does</div>
-      <div class="panel-body">
-        <p>query() gives you a lot of flexibility!</p>
-        <p *ngIf="showParagraph">You'll see!</p>
-      </div>
-      <div class="panel-footer">
-        <button (click)="showParagraph = !showParagraph" class="btn btn-primary">Toggle second paragraph</button>
-      </div>
+<div class="animation-type">
+    <div class="css-animation-wrapper">
+        <button class="collapsible" (click)="showContent(cssAnimations)">Toggle for CSS animation list:</button>
+        <div class="content" #cssAnimations style="display: none;">
+            <div *ngFor="let animation of cssAnimationList; let index = index;" class="animation-item-wrapper">
+                <button class="collapsible" (click)="toggleCss(cssAnimation, index)">
+                    <b>Toggle to show/hide: </b>
+                    <i>{{ animation.description }}</i>
+                </button>
+                <div class="content" #cssAnimation style="display: none;">
+                    <app-rectangle-circle *ngIf="0 === index && animation.isActive" class="component-content-wrapper"></app-rectangle-circle>
+                    <app-cube-rectangle *ngIf="1 === index && animation.isActive" class="component-content-wrapper"></app-cube-rectangle>
+                    <app-simple-loading-bar *ngIf="2 === index && animation.isActive" class="component-content-wrapper"></app-simple-loading-bar>
+                    <!-- <app-hover-expand-left *ngIf="3 === index && animation.isActive" class="component-content-wrapper"></app-hover-expand-left> -->
+                    <app-move-left *ngIf="4 === index && animation.isActive" class="component-content-wrapper"></app-move-left>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
-
-<hr />
-
-<h1 class="text-center">Angular2 Animations</h1>
-
-<div class="visible-text move-left" [ngStyle]="{'transform': 'translateX(-' + left + 'px)'}"></div>
-<button (click)="onMove()"> Move Left </button>
-
-<hr />
-
-<button (click)="addElement()">Add element</button>
-<div *ngFor="let item of addElementResults;"
-     @showList
-     (@showList.start)="onStart($event)"
-     (@showList.done)="onDone($event)"
-     class="visible-text">{{ item }}</div>
-<hr />
-
-<button (click)="width = width - 50">Shrink</button>
-<button (click)="animate = !animate">Animate === {{ animate }}</button>
-<p class="visible-text"
-   [ngStyle]="{ 'width.px': width }"
-   [@animateState]="animate ? 'animated' : 'notAnimated'">Shrink me</p>
-
-<hr>
-
-<div class="button-container" id="myButton">
-  <div class="button-icon-container">
-    <img src="https://placeholder.pics/svg/100x100/7AFFA6/000000/ICON">
-  </div>
-  
-  <div class="button-text-container">
-    <span>Here comes some text.</span>
-  </div>
-</div>
-
-
-<div *ngFor="let animation of animations; let index = index;">
-    <button class="collapsible" (click)="toggleCollapsible(animation, index)">
-        <b>Toggle to show/hide: </b>
-        <i>{{ animations[index].description }}</i>
-    </button>
-    <div class="content" #animation style="display: none;">
-        <app-rectangle-circle *ngIf="0 === index && animations[0].isActive" class="component-content-wrapper"></app-rectangle-circle>
-        <app-cube-rectangle *ngIf="1 === index && animations[1].isActive" class="component-content-wrapper"></app-cube-rectangle>
-        <app-simple-loading-bar *ngIf="2 === index && animations[2].isActive" class="component-content-wrapper"></app-simple-loading-bar>
-        <app-cube-rectangle-orange *ngIf="3 === index && animations[3].isActive" class="component-content-wrapper"></app-cube-rectangle-orange>
-        <app-number-select *ngIf="4 === index && animations[4].isActive" class="component-content-wrapper"></app-number-select>
-        <app-bubble-select *ngIf="5 === index && animations[5].isActive" class="component-content-wrapper"></app-bubble-select>
-        <app-toggle-element *ngIf="6 === index && animations[6].isActive" class="component-content-wrapper"></app-toggle-element>
+    <div class="angular-animation-wrapper">
+        <button class="collapsible" (click)="showContent(angularAnimations2)">Toggle for Angular 2 animation list:</button>
+        <div class="content" #angularAnimations2 style="display: none;">
+            <div *ngFor="let animation of angular2AnimationList; let index = index;" class="animation-item-wrapper">
+                <button class="collapsible" (click)="toggleAngular2Animation(ng2Animation, index)">
+                    <b>Toggle to show/hide: </b>
+                    <i>{{ animation.description }}</i>
+                </button>
+                <div class="content" #ng2Animation style="display: none;">
+                    <app-cube-rectangle-orange *ngIf="0 === index && animation.isActive" class="component-content-wrapper"></app-cube-rectangle-orange>
+                    <app-number-select *ngIf="1 === index && animation.isActive" class="component-content-wrapper"></app-number-select>
+                    <app-bubble-select *ngIf="2 === index && animation.isActive" class="component-content-wrapper"></app-bubble-select>
+                    <app-toggle-element *ngIf="3 === index && animation.isActive" class="component-content-wrapper"></app-toggle-element>
+                    <app-shrink-left *ngIf="4 === index && animation.isActive" class="component-content-wrapper"></app-shrink-left>
+                    <app-create-element *ngIf="5 === index && animation.isActive" class="component-content-wrapper"></app-create-element>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="angular-animation-wrapper">
+        <button class="collapsible" (click)="showContent(angularAnimations4)">Toggle for Angular 4+ animation list:</button>
+        <div class="content" #angularAnimations4 style="display: none;">
+            <div *ngFor="let animation of angular4AnimationList; let index = index;" class="animation-item-wrapper">
+                <button class="collapsible" (click)="toggleAngular4Animation(ng4Animation, index)">
+                    <b>Toggle to show/hide: </b>
+                    <i>{{ animation.description }}</i>
+                </button>
+                <div class="content" #ng4Animation style="display: none;">
+                    <app-move-left-prog *ngIf="0 === index && animation.isActive" class="component-content-wrapper"></app-move-left-prog>
+                    <app-create-remove-element *ngIf="1 === index && animation.isActive" class="component-content-wrapper"></app-create-remove-element>
+                    <app-stagger-animation *ngIf="2 === index && animation.isActive" class="component-content-wrapper"></app-stagger-animation>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

@@ -20,6 +20,13 @@ import { CubeRectangleOrangeComponent } from './animations/children/angular-anim
 import { NumberSelectComponent } from './animations/children/angular-animations/number-select/number-select.component';
 import { BubbleSelectComponent } from './animations/children/angular-animations/bubble-select/bubble-select.component';
 import { ToggleElementComponent } from './animations/children/angular-animations/toggle-element/toggle-element.component';
+import { ShrinkLeftComponent } from './animations/children/angular-animations/shrink-left/shrink-left.component';
+import { HoverExpandLeftComponent } from './animations/children/css/hover-expand-left/hover-expand-left.component';
+import { CreateElementComponent } from './animations/children/angular-animations/create-element/create-element.component';
+import { MoveLeftComponent } from './animations/children/css/move-left/move-left.component';
+import { MoveLeftProgComponent } from './animations/children/angular-animations/move-left-prog/move-left-prog.component';
+import { CreateRemoveElementComponent } from './animations/children/angular-animations/create-remove-element/create-remove-element.component';
+import { StaggerAnimationComponent } from './animations/children/angular-animations/stagger-animation/stagger-animation.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +40,14 @@ import { ToggleElementComponent } from './animations/children/angular-animations
     CubeRectangleOrangeComponent,
     NumberSelectComponent,
     BubbleSelectComponent,
-    ToggleElementComponent
+    ToggleElementComponent,
+    ShrinkLeftComponent,
+    HoverExpandLeftComponent,
+    CreateElementComponent,
+    MoveLeftComponent,
+    MoveLeftProgComponent,
+    CreateRemoveElementComponent,
+    StaggerAnimationComponent
   ],
   imports: [
     BrowserModule,

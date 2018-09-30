@@ -1,6 +1,5 @@
 :host {
   .collapsible {
-    background-color: #1466a2;
     color: #ffffff;
     cursor: pointer;
     padding: 18px;
@@ -11,53 +10,46 @@
     font-size: 15px;
   }
 
-  .active, .collapsible:hover {
-    background-color: #5198cc;
+  .animation-type {
+    .css-animation-wrapper,
+    .angular-animation-wrapper {
+      .collapsible {
+        background-color: #83319c;
+      }
+  
+      .active, .collapsible:hover {
+        background-color:#9e65af;
+      }
+
+      .content {
+        background-color: #e4b9f1;
+        padding-right: 0;
+      }
+
+      .animation-item-wrapper {
+        .collapsible {
+          background-color: #1466a2;
+        }
+
+        .active, .collapsible:hover {
+          background-color: #5198cc;
+        }
+
+        .content {
+          background-color: #f1f1f18a;
+        }
+      }
+    }
   }
 
   .content {
     padding: 0 18px;
     display: none;
     overflow: hidden;
-    background-color: #f1f1f1;
   }
 
   .component-content-wrapper {
     margin: 15px;
-  }
-
-  .button-container {
-    position: fixed;
-    top: 5%;
-    right: 5%;
-    padding: 5px;
-    background-color: tomato;
-    display: flex;
-    justify-content: space-between;
-    overflow: hidden;
-  }
-  
-  .button-text-container {
-    order:-1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: lightblue;
-    white-space:nowrap; /*Keep text always one line*/
-    overflow:hidden;
-    width:0;
-    transition: width 1s;
-  }
-  
-  .button-icon-container {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .button-icon-container:hover + .button-text-container {
-    width:200px;
   }
   
   .right-side {
@@ -70,30 +62,4 @@
     padding: 10px;
     margin: 10px 0;
   }
-  
-  .move-left {
-    width: 500px;
-    margin: auto;
-    transition: all 0.2s linear;
-  }
-  
-  .panel-heading {
-    background: lightgray;
-    border: 1px solid darkgrey;
-  }
-  
-  .panel-default {
-    border: 10px solid paleturquoise;
-    padding: 10px;
-  }
-  
-  .moving-left {
-    border: 1px solid darkblue;
-    background-color: lightblue;
-    padding: 10px;
-    margin: 10px 0;
-    width: 500px;
-    margin: auto;
-  }
-  
 }

@@ -1,0 +1,9 @@
+<button (click)="showStaggerList = !showStaggerList;">Show stagger list</button>
+
+<div *ngIf="showStaggerList"
+     [@staggerList]="showStaggerList">
+    <div *ngFor="let item of staggerAnimationList;"
+        class="visible-text">
+        {{ item }}
+    </div>
+</div>
