@@ -1,9 +1,22 @@
-<div *ngIf="users$ | async as users else loadingUsers">
-  <span *ngFor="let user of users">
-    Login: {{ user.login }}
-  </span>
+<div class="rxjs-wrapper">
+    <div *ngFor="let example of examplesList; let index = index;" class="example-item-wrapper">
+        <button class="collapsible" (click)="toggleExample(rxjsExample, index)">
+            <b>Toggle to show/hide: </b>
+            <i>{{ example.description }}</i>
+        </button>
+        <div class="content" #rxjsExample style="display: none;">
+          <app-profile-github *ngIf="0 === index && example.isActive" class="component-content-wrapper"></app-profile-github>
+          <div *ngIf="1 === index && example.isActive" class="component-content-wrapper">
+            <div *ngIf="users$ | async as users else loadingUsers">
+                <span *ngFor="let user of users">
+                    Login: {{ user.login }}
+                </span>
+            </div>
+            
+            <ng-template #loadingUsers>
+                Loading.....
+            </ng-template>
+          </div>
+        </div>
+    </div>
 </div>
-
-<ng-template #loadingUsers>
-  Loading.....
-</ng-template>

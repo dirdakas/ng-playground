@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
@@ -27,6 +26,8 @@ import { MoveLeftComponent } from './animations/children/css/move-left/move-left
 import { MoveLeftProgComponent } from './animations/children/angular-animations/move-left-prog/move-left-prog.component';
 import { CreateRemoveElementComponent } from './animations/children/angular-animations/create-remove-element/create-remove-element.component';
 import { StaggerAnimationComponent } from './animations/children/angular-animations/stagger-animation/stagger-animation.component';
+import { HeaderComponent } from './components/header/header.component';
+import { ProfileGithubComponent } from './components/profile-github/profile-github.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,9 @@ import { StaggerAnimationComponent } from './animations/children/angular-animati
     MoveLeftComponent,
     MoveLeftProgComponent,
     CreateRemoveElementComponent,
-    StaggerAnimationComponent
+    StaggerAnimationComponent,
+    HeaderComponent,
+    ProfileGithubComponent
   ],
   imports: [
     BrowserModule,

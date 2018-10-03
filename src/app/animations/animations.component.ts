@@ -23,11 +23,7 @@ import { MoveLeftComponent } from './children/css/move-left/move-left.component'
 import { MoveLeftProgComponent } from './children/angular-animations/move-left-prog/move-left-prog.component';
 import { CreateRemoveElementComponent } from './children/angular-animations/create-remove-element/create-remove-element.component';
 import { StaggerAnimationComponent } from './children/angular-animations/stagger-animation/stagger-animation.component';
-
-interface AnimationObject {
-  component: any;
-  description: string;
-}
+import { ExampleObject } from '../interfaces/exampleObject';
 
 @Component({
   selector: 'app-animation-page',
@@ -38,7 +34,7 @@ interface AnimationObject {
   ]
 })
 export class AnimationsComponent {
-  cssAnimationList: Array<AnimationObject> = [
+  cssAnimationList: Array<ExampleObject> = [
     {
       component: RectangleCircleComponent,
       description: 'On click rectangle will move to the right while transforming into circle'
@@ -61,7 +57,7 @@ export class AnimationsComponent {
     }
   ];
 
-  angular2AnimationList: Array<AnimationObject> = [
+  angular2AnimationList: Array<ExampleObject> = [
     {
       component: CubeRectangleOrangeComponent,
       description: 'On click one cube will become rentagle, other one is multi-clickble for animation'
@@ -88,7 +84,7 @@ export class AnimationsComponent {
     }
   ];
 
-  angular4AnimationList: Array<AnimationObject> = [
+  angular4AnimationList: Array<ExampleObject> = [
     {
       component: MoveLeftProgComponent,
       description: 'On click will move element to the left programically'
@@ -107,7 +103,7 @@ export class AnimationsComponent {
 
   constructor() { }
 
-  toggleCollapsible(element: HTMLElement, index: number, list: Array<AnimationObject>) {
+  toggleCollapsible(element: HTMLElement, index: number, list: Array<ExampleObject>) {
     if (element.style.display === 'none') {
       element.style.display = 'block';
       list[index]['isActive'] = true;
