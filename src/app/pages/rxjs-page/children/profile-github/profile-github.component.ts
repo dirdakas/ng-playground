@@ -1,5 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder } from '@angular/forms';
+
 import { GithubService } from '../../../../services/github.service';
+
+import { Observable } from 'rxjs';
 import { take, tap, debounceTime } from 'rxjs/operators';
 
 @Component({
@@ -7,36 +11,45 @@ import { take, tap, debounceTime } from 'rxjs/operators';
   templateUrl: './profile-github.component.html',
   styleUrls: ['./profile-github.component.scss']
 })
-export class ProfileGithubComponent {
-  user: any;
-  repos: any[];
-  username: string;
+export class ProfileGithubComponent implements OnInit {
+  user$: Observable<any>;
+  repos$: Observable<any>;
+  usernameForm: FormGroup;
 
-  constructor(private _githubService: GithubService) {
-    this.user = false;
-  }
+  constructor(
+    private _githubService: GithubService,
+    private fb: FormBuilder
+  ) {}
 
-  searchUser(): void {
-    this._githubService.updateUser(this.username);
+  ngOnInit() {
+    this.usernameForm = this.fb.group({
+      username: 'dirdakas'
+    });
 
-    // TODO check debounce
-    this._githubService.getUser()
+    this.searchUser(this.usernameForm.get('username').value);
+
+    this.usernameForm.get('username').valueChanges
       .pipe(
-        debounceTime(300),
-        take(1),
-        tap(user => {
-          this.user = user;
-          this.getRepos();
-        })
+        debounceTime(3000),
+        tap(_newVal => this.searchUser(_newVal))
       )
       .subscribe();
   }
 
-  private getRepos(): void {
-    this._githubService.getRepos()
+  searchUser(username: string): void {
+    this._githubService.updateUser(username);
+
+    this.user$ = this._githubService.getUser()
       .pipe(
         take(1),
-        tap(repos => this.repos = repos)
-      ).subscribe();
+        tap(() => this.getRepos())
+      );
+  }
+
+  private getRepos(): void {
+    this.repos$ = this._githubService.getRepos()
+      .pipe(
+        take(1)
+      );
   }
 }
