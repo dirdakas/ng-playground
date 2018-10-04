@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { GithubService } from '../../../services/github.service';
+import { GithubService } from '../../../../services/github.service';
 import { take, tap, debounceTime } from 'rxjs/operators';
 
 @Component({

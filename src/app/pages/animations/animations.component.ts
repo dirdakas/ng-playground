@@ -7,7 +7,7 @@ import {
   animate
 } from '@angular/animations';
 
-import { routeFadeStateTrigger } from '../shared/route-animations';
+import { routeFadeStateTrigger } from '../../shared/route-animations';
 
 import { RectangleCircleComponent } from './children/css/rectangle-circle/rectangle-circle.component';
 import { CubeRectangleComponent } from './children/css/cube-rectangle/cube-rectangle.component';
@@ -23,7 +23,7 @@ import { MoveLeftComponent } from './children/css/move-left/move-left.component'
 import { MoveLeftProgComponent } from './children/angular-animations/move-left-prog/move-left-prog.component';
 import { CreateRemoveElementComponent } from './children/angular-animations/create-remove-element/create-remove-element.component';
 import { StaggerAnimationComponent } from './children/angular-animations/stagger-animation/stagger-animation.component';
-import { ExampleObject } from '../interfaces/exampleObject';
+import { ExampleObject } from '../../interfaces/exampleObject';
 
 @Component({
   selector: 'app-animation-page',

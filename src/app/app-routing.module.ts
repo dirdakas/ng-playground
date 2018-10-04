@@ -1,9 +1,9 @@
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 
-import { HomeComponent } from './home/home.component';
-import { AnimationsComponent } from './animations/animations.component';
-import { RxjsPageComponent } from './rxjs-page/rxjs-page.component';
+import { HomeComponent } from './pages/home/home.component';
+import { AnimationsComponent } from './pages/animations/animations.component';
+import { RxjsPageComponent } from './pages/rxjs-page/rxjs-page.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },

@@ -1,5 +1,5 @@
 import { Component, HostBinding } from '@angular/core';
-import { routeFadeStateTrigger } from '../shared/route-animations';
+// import { routeFadeStateTrigger } from '../../shared/route-animations';
 
 @Component({
   selector: 'app-home-page',

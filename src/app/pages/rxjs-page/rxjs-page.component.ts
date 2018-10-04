@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { PublicHttpDataService } from '../services/public-http-data.service';
+import { PublicHttpDataService } from '../../services/public-http-data.service';
 
 import { tap, first } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
-import { ExampleObject } from '../interfaces/exampleObject';
+import { ExampleObject } from '../../interfaces/exampleObject';
 import { ProfileGithubComponent } from './children/profile-github/profile-github.component';
 
 @Component({
