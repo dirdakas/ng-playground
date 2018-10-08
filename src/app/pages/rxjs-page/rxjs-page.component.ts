@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { PublicHttpDataService } from '../../services/public-http-data.service';
 
-import { tap, first } from 'rxjs/operators';
+import { tap, first, switchMap, take } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
 import { ExampleObject } from '../../interfaces/exampleObject';
 import { ProfileGithubComponent } from './children/profile-github/profile-github.component';
+import { pipe } from '@angular/core/src/render3/pipe';
 
 @Component({
   selector: 'app-rxjs-page',
@@ -45,5 +46,21 @@ export class RxjsPageComponent {
     setTimeout(() => {
       this.users$ = this.publicHttpDataService.getGitUser2('dirdakas');
     }, 2000);
+
+    this.publicHttpDataService.getGitUser2('dirdakas')
+      .pipe(
+        take(1),
+        switchMap(data => this.getFirstLoginFromResponse(data)),
+        tap(res => console.log('res', res))
+      )
+      .subscribe();
+  }
+
+  // @TODO: netaip veikia kazkodel
+  private getFirstLoginFromResponse(data: any): string {
+    if (data && data.length > 0) {
+      return data[0].login;
+    }
+    return '';
   }
 }

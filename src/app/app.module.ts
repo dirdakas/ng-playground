@@ -30,6 +30,7 @@ import { CreateRemoveElementComponent } from './pages/animations/children/angula
 import { StaggerAnimationComponent } from './pages/animations/children/angular-animations/stagger-animation/stagger-animation.component';
 
 import { ProfileGithubComponent } from './pages/rxjs-page/children/profile-github/profile-github.component';
+import { LoginComponent } from './pages/login/login.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { ProfileGithubComponent } from './pages/rxjs-page/children/profile-githu
     CreateRemoveElementComponent,
     StaggerAnimationComponent,
     HeaderComponent,
-    ProfileGithubComponent
+    ProfileGithubComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

@@ -61,6 +61,15 @@
       &:hover, &:active {
         border-bottom: 5px solid #a7fffc;
       }
+
+      &.logout {
+        cursor: pointer;
+        a {
+          &:hover, &:active {
+            color: #ff5252a3;
+          }
+        }
+      }
     }  
   }
 }

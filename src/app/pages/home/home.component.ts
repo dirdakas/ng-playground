@@ -1,4 +1,7 @@
 import { Component, HostBinding } from '@angular/core';
+
+import { UserService } from '../../services/user.service';
+
 // import { routeFadeStateTrigger } from '../../shared/route-animations';
 
 @Component({
@@ -11,4 +14,5 @@ import { Component, HostBinding } from '@angular/core';
 })
 export class HomeComponent {
   // @HostBinding('@routeFadeState') routeAnimation = true;
+  constructor(private userService: UserService) {}
 }
