@@ -1,0 +1,9 @@
+<div *ngIf="isVisible"
+     class="notification-wrapper"
+     [@notificationState]="isVisible">
+    <span class="message">{{ notification.message }}</span>
+    <span *ngIf="notification.isClosable"
+          (click)="closeNotification(notification.id)"
+          class="close">
+    </span>
+</div>

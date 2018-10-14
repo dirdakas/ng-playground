@@ -1,0 +1,6 @@
+<div *ngIf="notifications$ | async as notifications"
+     class="global-notifications">
+    <div *ngFor="let notification of notifications">
+        <app-notification [notification]="notification"></app-notification>
+    </div>
+</div>

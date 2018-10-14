@@ -24,6 +24,7 @@ import { MoveLeftProgComponent } from './children/angular-animations/move-left-p
 import { CreateRemoveElementComponent } from './children/angular-animations/create-remove-element/create-remove-element.component';
 import { StaggerAnimationComponent } from './children/angular-animations/stagger-animation/stagger-animation.component';
 import { ExampleObject } from '../../interfaces/exampleObject';
+import { GlobalNotificationsService } from '../../services/global-notifications.service';
 
 @Component({
   selector: 'app-animation-page',
@@ -81,6 +82,10 @@ export class AnimationsComponent {
     {
       component: CreateElementComponent,
       description: 'On click it will create new element and animates it\'s appearing'
+    },
+    {
+      service: GlobalNotificationsService,
+      description: 'On button click it will create global notification'
     }
   ];
 
@@ -101,7 +106,7 @@ export class AnimationsComponent {
 
   // @HostBinding('@routeFadeState') routeAnimation = true;
 
-  constructor() { }
+  constructor(private globalNotificationsService: GlobalNotificationsService) { }
 
   toggleCollapsible(element: HTMLElement, index: number, list: Array<ExampleObject>) {
     if (element.style.display === 'none') {
@@ -131,5 +136,9 @@ export class AnimationsComponent {
     } else {
       element.style.display = 'none';
     }
+  }
+
+  addGlobalNotification(): void {
+    this.globalNotificationsService.addNotification('Hooray!!!!');
   }
 }

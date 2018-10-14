@@ -32,6 +32,9 @@
                     <app-toggle-element *ngIf="3 === index && animation.isActive" class="component-content-wrapper"></app-toggle-element>
                     <app-shrink-left *ngIf="4 === index && animation.isActive" class="component-content-wrapper"></app-shrink-left>
                     <app-create-element *ngIf="5 === index && animation.isActive" class="component-content-wrapper"></app-create-element>
+                    <div *ngIf="6 === index && animation.isActive" class="component-content-wrapper">
+                        <button class="btn btn-default" (click)="addGlobalNotification()">Add simple notification</button>
+                    </div>
                 </div>
             </div>
         </div>

@@ -1,0 +1,11 @@
+<div class="global-notification-wrapper">
+    <div *ngFor="let example of examplesList; let index = index;" class="example-item-wrapper">
+        <button class="collapsible" (click)="toggleExample(globalNotificationExample, index)">
+            <b>Toggle to show/hide: </b>
+            <i>{{ example.description }}</i>
+        </button>
+        <div class="content" #globalNotificationExample style="display: none;">
+            <app-simple-notification *ngIf="0 === index && example.isActive" class="component-content-wrapper"></app-simple-notification>
+        </div>
+    </div>
+</div>

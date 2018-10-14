@@ -1,0 +1,15 @@
+@import '../../shared/variables.scss';
+
+.global-notifications {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 25%;
+  right: 25%;
+  overflow: hidden;
+
+  @media (max-width: 768px) {
+    left: 0;
+    right: 0;
+  }
+}

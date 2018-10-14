@@ -31,6 +31,11 @@ import { StaggerAnimationComponent } from './pages/animations/children/angular-a
 
 import { ProfileGithubComponent } from './pages/rxjs-page/children/profile-github/profile-github.component';
 import { LoginComponent } from './pages/login/login.component';
+import { GlobalNotificationsService } from './services/global-notifications.service';
+import { GlobalNotificationsPageComponent } from './pages/global-notifications-page/global-notifications-page.component';
+import { SimpleNotificationComponent } from './pages/global-notifications-page/children/simple-notification/simple-notification.component';
+import { GlobalNotificationsComponent } from './components/global-notifications/global-notifications.component';
+import { NotificationComponent } from './components/global-notifications/children/notification/notification.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +59,11 @@ import { LoginComponent } from './pages/login/login.component';
     StaggerAnimationComponent,
     HeaderComponent,
     ProfileGithubComponent,
-    LoginComponent
+    LoginComponent,
+    GlobalNotificationsPageComponent,
+    SimpleNotificationComponent,
+    GlobalNotificationsComponent,
+    NotificationComponent
   ],
   imports: [
     BrowserModule,
@@ -64,7 +73,9 @@ import { LoginComponent } from './pages/login/login.component';
     BrowserAnimationsModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    GlobalNotificationsService
+  ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   bootstrap: [AppComponent]
 })

@@ -1,5 +1,6 @@
 export interface ExampleObject {
-  component: any;
+  component?: any;
+  service?: any;
   description: string;
   isActive?: boolean;
 }

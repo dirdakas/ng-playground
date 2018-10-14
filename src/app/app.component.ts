@@ -1,6 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { trigger, transition, query, style, animate, group } from '@angular/animations';
+import { GlobalNotificationsService } from './services/global-notifications.service';
+import { Subscription } from 'rxjs';
+import { tap } from 'rxjs/operators';
+import { GlobalNotification } from './interfaces/globalNotification';
 
 @Component({
   selector: 'app-root',
@@ -30,8 +34,19 @@ import { trigger, transition, query, style, animate, group } from '@angular/anim
     ])
   ]
 })
-export class AppComponent {
-  constructor() { }
+export class AppComponent implements OnInit, OnDestroy {
+  private globalNotificationsSub: Subscription;
+  constructor(private globalNotificationsService: GlobalNotificationsService) { }
+
+  ngOnInit() {
+    this.globalNotificationsSub = this.globalNotificationsService.notifications$
+      .pipe(
+        tap((notifications: Array<GlobalNotification>) => {
+          console.log('notifications', notifications);
+        })
+      )
+      .subscribe();
+  }
 
   getAnimations(routerOutlet: RouterOutlet) {
     const routeData = routerOutlet.activatedRouteData['animations'];
@@ -40,5 +55,9 @@ export class AppComponent {
     } else {
       return 'homePage';
     }
+  }
+
+  ngOnDestroy() {
+    this.globalNotificationsSub.unsubscribe();
   }
 }

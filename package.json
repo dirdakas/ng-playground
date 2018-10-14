@@ -1,6 +1,6 @@
 {
-  "name": "ng-animations",
-  "version": "0.0.0",
+  "name": "ng-playground",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

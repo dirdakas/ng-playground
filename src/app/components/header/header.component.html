@@ -18,6 +18,11 @@
             <li class="main-nav__item"
                 role="presentation"
                 routerLinkActive="active">
+                <a routerLink="/global-notifications-page">Global Notifications</a>
+            </li>
+            <li class="main-nav__item"
+                role="presentation"
+                routerLinkActive="active">
                 <a routerLink="/rxjs-page">Rxjs Page</a>
             </li>
             <li *ngIf="!(isLoggedIn$ | async)"
