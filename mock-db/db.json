@@ -2,11 +2,15 @@
   "users": [
     {
       "id": 0,
-      "nickName": "dirdakas"
+      "nickName": "dirdakas",
+      "firstName": "Lukas",
+      "lastName": "Dirda"
     },
     {
       "id": 1,
-      "nickName": "someRandomGuy"
+      "nickName": "SkyWalker",
+      "firstName": "Luke",
+      "lastName": "Jedi"
     }
   ]
 }

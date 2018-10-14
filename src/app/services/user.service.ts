@@ -19,6 +19,7 @@ export const LOGGED_USER: User = {
   providedIn: 'root'
 })
 export class UserService {
+  public static GET_USER_BY_NICKNAME = 'http://localhost:4200/users?nickName=';
 
   private userSubject = new BehaviorSubject(GUEST_USER);
 
@@ -26,13 +27,9 @@ export class UserService {
 
   constructor(private _http: HttpClient) { }
 
-  mockLoginRequest(): Observable<any> {
-    return this._http.get(
-      'http://api.github.com/users/' +
-      'dirdakas' +
-      '?client_id=d9308aacf8b204d361fd&client_secret=' +
-      '62551cc02cee983fff0bac41baf170eb5a312c1c'
-    );
+  mockLoginRequest(nickName: string): Observable<any> {
+    return this._http
+      .get(UserService.GET_USER_BY_NICKNAME + nickName);
   }
 
   login(user: User): void {

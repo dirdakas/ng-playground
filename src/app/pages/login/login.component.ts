@@ -6,7 +6,8 @@ import { UserService } from '../../services/user.service';
 
 import { User } from '../../interfaces/user';
 
-import { map, tap } from 'rxjs/operators';
+import { tap, take, map, catchError } from 'rxjs/operators';
+import { EMPTY } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -15,6 +16,9 @@ import { map, tap } from 'rxjs/operators';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
+
+  // @TODO: used for simple error, 404 user
+  userNotFound: boolean;
 
   constructor(
     private router: Router,
@@ -30,16 +34,26 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
+    this.userNotFound = false;
+
     if (this.loginForm.valid) {
-      this.userService.mockLoginRequest()
+      this.userService.mockLoginRequest(this.loginForm.get('username').value)
         .pipe(
-          tap(_user => {
-            const user: User = {
-              firstName: _user.name,
-              nickName: _user.login
-            };
-            this.userService.login(user);
-            this.router.navigate(['/home']);
+          take(1),
+          map(response => response[0]),
+          tap((_user: User) => {
+            if (_user) {
+               this.userService.login(_user);
+               this.router.navigate(['/home']);
+            } else {
+              // @TODO: 404 add with form validation
+              this.userNotFound = true;
+            }
+          }),
+          catchError(_err => {
+            // @TODO: add http error notifications
+            console.log('err', _err);
+            return EMPTY;
           })
         )
         .subscribe();

@@ -13,6 +13,7 @@
                             maxlength="10"
                             formControlName="username" />
                 </div>
+                <div *ngIf="userNotFound" class="error">User not found, try different username like <span class="tip">SkyWalker</span></div>
             </div>
             <div class="form-group">
                 <div class="input-group">
