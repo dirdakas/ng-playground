@@ -13,12 +13,12 @@ import { notificationStateTrigger } from '../../notification-animations';
 import { GlobalNotification } from '../../../../interfaces/globalNotification';
 
 @Component({
-  selector: 'app-notification',
-  templateUrl: './notification.component.html',
-  styleUrls: ['./notification.component.scss'],
+  selector: 'app-global-simple-notification',
+  templateUrl: './global-simple-notification.component.html',
+  styleUrls: ['./global-simple-notification.component.scss'],
   animations: [ notificationStateTrigger ]
 })
-export class NotificationComponent {
+export class GlobalSimpleNotificationComponent {
   @Input() notification: GlobalNotification;
 
   isVisible: boolean;

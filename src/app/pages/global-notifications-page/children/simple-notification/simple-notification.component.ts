@@ -10,6 +10,6 @@ export class SimpleNotificationComponent {
   constructor(private globalNotificationsService: GlobalNotificationsService) { }
 
   showNotification(): void {
-    this.globalNotificationsService.addNotification('Notification!!!!');
+    this.globalNotificationsService.addSimpleNotification('Notification!!!!');
   }
 }

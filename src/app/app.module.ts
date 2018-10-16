@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA, ErrorHandler } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -17,7 +17,9 @@ import { HeaderComponent } from './components/header/header.component';
 import { RectangleCircleComponent } from './pages/animations/children/css/rectangle-circle/rectangle-circle.component';
 import { CubeRectangleComponent } from './pages/animations/children/css/cube-rectangle/cube-rectangle.component';
 import { SimpleLoadingBarComponent } from './pages/animations/children/css/simple-loading-bar/simple-loading-bar.component';
-import { CubeRectangleOrangeComponent } from './pages/animations/children/angular-animations/cube-rectangle-orange/cube-rectangle-orange.component';
+import {
+  CubeRectangleOrangeComponent
+} from './pages/animations/children/angular-animations/cube-rectangle-orange/cube-rectangle-orange.component';
 import { NumberSelectComponent } from './pages/animations/children/angular-animations/number-select/number-select.component';
 import { BubbleSelectComponent } from './pages/animations/children/angular-animations/bubble-select/bubble-select.component';
 import { ToggleElementComponent } from './pages/animations/children/angular-animations/toggle-element/toggle-element.component';
@@ -26,7 +28,9 @@ import { HoverExpandLeftComponent } from './pages/animations/children/css/hover-
 import { CreateElementComponent } from './pages/animations/children/angular-animations/create-element/create-element.component';
 import { MoveLeftComponent } from './pages/animations/children/css/move-left/move-left.component';
 import { MoveLeftProgComponent } from './pages/animations/children/angular-animations/move-left-prog/move-left-prog.component';
-import { CreateRemoveElementComponent } from './pages/animations/children/angular-animations/create-remove-element/create-remove-element.component';
+import {
+  CreateRemoveElementComponent
+} from './pages/animations/children/angular-animations/create-remove-element/create-remove-element.component';
 import { StaggerAnimationComponent } from './pages/animations/children/angular-animations/stagger-animation/stagger-animation.component';
 
 import { ProfileGithubComponent } from './pages/rxjs-page/children/profile-github/profile-github.component';
@@ -35,7 +39,15 @@ import { GlobalNotificationsService } from './services/global-notifications.serv
 import { GlobalNotificationsPageComponent } from './pages/global-notifications-page/global-notifications-page.component';
 import { SimpleNotificationComponent } from './pages/global-notifications-page/children/simple-notification/simple-notification.component';
 import { GlobalNotificationsComponent } from './components/global-notifications/global-notifications.component';
-import { NotificationComponent } from './components/global-notifications/children/notification/notification.component';
+import {
+  GlobalSimpleNotificationComponent
+} from './components/global-notifications/children/global-simple-notification/global-simple-notification.component';
+import { AppErrorHandler } from './services/app-error.handler';
+import {
+  GlobalTypedNotificationComponent
+} from './components/global-notifications/children/global-typed-notification/global-typed-notification.component';
+import { TypedNotificationComponent } from './pages/global-notifications-page/children/typed-notification/typed-notification.component';
+
 
 @NgModule({
   declarations: [
@@ -63,7 +75,9 @@ import { NotificationComponent } from './components/global-notifications/childre
     GlobalNotificationsPageComponent,
     SimpleNotificationComponent,
     GlobalNotificationsComponent,
-    NotificationComponent
+    GlobalSimpleNotificationComponent,
+    GlobalTypedNotificationComponent,
+    TypedNotificationComponent
   ],
   imports: [
     BrowserModule,
@@ -74,7 +88,8 @@ import { NotificationComponent } from './components/global-notifications/childre
     AppRoutingModule
   ],
   providers: [
-    GlobalNotificationsService
+    GlobalNotificationsService,
+    { provide: ErrorHandler, useClass: AppErrorHandler },
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   bootstrap: [AppComponent]
