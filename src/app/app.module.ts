@@ -48,7 +48,6 @@ import {
 } from './components/global-notifications/children/global-typed-notification/global-typed-notification.component';
 import { TypedNotificationComponent } from './pages/global-notifications-page/children/typed-notification/typed-notification.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,

@@ -47,15 +47,14 @@ export class GlobalTypedNotificationComponent implements OnInit {
     private animationBuilder: AnimationBuilder
   ) {}
 
-
   ngOnInit() {
     this.createAnimations();
-
     this.playAnimation('create');
   }
 
   private getCreationAnimation(): AnimationFactory {
     const colors: NotificationColors = this.getNotificationColors();
+
     return this.animationBuilder.build([
       style({
         opacity: 0,

@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
       this.userService.mockLoginRequest(this.loginForm.get('username').value)
         .pipe(
           take(1),
-          map(response => response[0]),
+          map((response: any) => response[0]),
           tap((_user: User) => {
             if (_user) {
                this.userService.login(_user);
@@ -50,9 +50,10 @@ export class LoginComponent implements OnInit {
               this.userNotFound = true;
             }
           }),
-          catchError(_err => {
+          catchError((_err: any) => {
             // @TODO: add http error notifications
             console.log('err', _err);
+
             return EMPTY;
           })
         )

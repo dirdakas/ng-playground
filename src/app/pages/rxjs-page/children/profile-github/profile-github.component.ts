@@ -31,7 +31,7 @@ export class ProfileGithubComponent implements OnInit {
     this.usernameForm.get('username').valueChanges
       .pipe(
         debounceTime(3000),
-        tap(_newVal => this.searchUser(_newVal))
+        tap((_newVal: string) => this.searchUser(_newVal))
       )
       .subscribe();
   }

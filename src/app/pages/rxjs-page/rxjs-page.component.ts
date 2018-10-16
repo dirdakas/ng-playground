@@ -50,8 +50,8 @@ export class RxjsPageComponent {
     this.publicHttpDataService.getGitUser2('dirdakas')
       .pipe(
         take(1),
-        switchMap(data => this.getFirstLoginFromResponse(data)),
-        tap(res => console.log('res', res))
+        switchMap((data: any) => this.getFirstLoginFromResponse(data)),
+        tap((res: any) => console.log('res', res))
       )
       .subscribe();
   }
@@ -61,6 +61,7 @@ export class RxjsPageComponent {
     if (data && data.length > 0) {
       return data[0].login;
     }
+
     return '';
   }
 }

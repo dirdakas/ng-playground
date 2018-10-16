@@ -25,7 +25,7 @@ export class GlobalNotificationsService {
   removeNotification(id: number): void {
     let newNotificationList = this.notificationsSubject.getValue();
     newNotificationList = newNotificationList
-      .filter(notification => {
+      .filter((notification: GlobalNotification) => {
         return notification.id !== id;
       });
     this.notificationsSubject.next(newNotificationList);
@@ -47,6 +47,7 @@ export class GlobalNotificationsService {
   }
 
   private getLastNotification(): GlobalNotification {
-    return this.notificationsSubject.getValue().slice(-1)[0];
+    return this.notificationsSubject.getValue()
+      .slice(-1)[0];
   }
 }

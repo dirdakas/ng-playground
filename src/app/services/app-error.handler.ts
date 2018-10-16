@@ -3,7 +3,9 @@ import { HttpErrorResponse } from '@angular/common/http';
 
 import { EMPTY } from 'rxjs';
 
-@Injectable({ providedIn: 'root' })
+@Injectable({
+  providedIn: 'root'
+})
 export class AppErrorHandler implements ErrorHandler {
   handleError(error: any) {
     // @TODO: here we can handle errors globally if we want or hide it

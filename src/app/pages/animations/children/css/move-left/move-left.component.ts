@@ -6,7 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./move-left.component.scss']
 })
 export class MoveLeftComponent {
-  left: number = 0;
+  left: number;
+
+  constructor() {
+    this.left = 0;
+  }
 
   onMove(): void {
     this.left += 20;

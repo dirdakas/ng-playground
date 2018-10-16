@@ -3,6 +3,15 @@
     "node_modules/codelyzer"
   ],
   "rules": {
+    "arrow-parens": true,
+    "newline-before-return": true,
+    "newline-per-chained-call": true,
+    "no-consecutive-blank-lines": true,
+    "no-irregular-whitespace": true,
+    "no-unnecessary-qualifier": true,
+    "no-any": true,
+    "only-arrow-functions": true,
+    "no-unused-variable": true,
     "arrow-return-shorthand": true,
     "callable-types": true,
     "class-name": true,

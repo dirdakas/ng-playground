@@ -13,9 +13,11 @@ import {
   styleUrls: ['./move-left-prog.component.scss']
 })
 export class MoveLeftProgComponent {
-  bLeft: number = 0;
+  bLeft: number;
 
-  constructor(private animationBuilder: AnimationBuilder) {}
+  constructor(private animationBuilder: AnimationBuilder) {
+    this.bLeft = 0;
+  }
 
   moveLeftProg(element: HTMLElement): void {
     const animation = this.animationBuilder.build([

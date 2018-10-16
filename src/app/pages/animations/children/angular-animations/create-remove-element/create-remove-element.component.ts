@@ -16,6 +16,11 @@ import { panelStateTrigger } from '../../../animations';
   animations: [ panelStateTrigger ]
 })
 export class CreateRemoveElementComponent {
-  showPanel: boolean = false;
-  showParagraph: boolean = true;
+  showPanel: boolean;
+  showParagraph: boolean;
+
+  constructor() {
+    this.showPanel = false;
+    this.showParagraph = false;
+  }
 }
