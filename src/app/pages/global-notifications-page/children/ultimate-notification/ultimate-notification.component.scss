@@ -1,0 +1,35 @@
+@import '../../../../shared/variables.scss';
+
+button {
+  display: block;
+  margin: 5px;
+
+  &:first-of-type {
+    margin-top: 0px;
+
+    &:before {
+      margin-top: 5px;
+      content: ''
+    }
+  }
+
+  &.success {
+    color: $success-dark;
+    background: $success-light;
+  }
+
+  &.info {
+    color: $info-dark;
+    background: $info-light;
+  }
+
+  &.warning {
+    color: $warning-dark;
+    background: $warning-light;
+  }
+
+  &.error {
+    color: $error-dark;
+    background: $error-light;
+  }
+}

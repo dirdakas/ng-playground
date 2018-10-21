@@ -1,0 +1,103 @@
+@import '../../../../shared/variables.scss';
+
+.notification-wrapper {
+  padding: 10px 5px;
+  text-align: left;
+  overflow: hidden;
+  width: 99%;
+  position: relative;
+  margin-left: 5px;
+  margin-right: 5px;
+
+  @media (min-width: $screen-xs-max) {
+    box-shadow: 0 0 5px $fuscous-gray;
+    border-radius: 5px;
+    margin-bottom: 3px;
+  }
+
+  @media (max-width: $screen-xs-max) {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    border-bottom: 1px solid $fuscous-gray;
+  }
+
+  .message {
+    width: calc(100% - 40px);
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+
+    vertical-align: middle;
+    display: inline-block;
+
+    &.extra-1 {
+      width: calc(100% - 40px - 70px);
+    }
+
+    &.extra-2 {
+      width: calc(100% - 40px - 140px);
+    }
+
+    &.extra-3 {
+      width: calc(100% - 40px - 210px);
+    }
+  }
+
+  .right-panel {
+    float: right;
+
+    .user-input-form {
+      display: inline-block;
+
+      input {
+        width: 70px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+    }
+  
+    .link {
+      vertical-align: middle;
+      margin-left: 5px;
+    }
+  
+    button {
+      margin-left: 5px;
+      margin-right: 5px;
+      border-radius: 5px;
+      font-weight: 800;
+  
+      &.cancel {
+        background: $error-light;
+        color: $error-dark;
+  
+        &:hover {
+          color: $error-light;
+          background: $error-dark;
+        }
+      }
+  
+      &.confirm {
+        background: $success-dark;
+        color: $success-light;
+  
+        &:hover {
+          color: $success-dark;
+          background: $success-light;
+        }
+      }
+    }
+  
+    .close {
+      display: inline-block;
+  
+      &:after {
+        content: '\00d7';
+        padding: 5px;
+      }
+    }
+  }
+}

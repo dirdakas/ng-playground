@@ -14,7 +14,7 @@ import { Observable } from 'rxjs';
 export class GlobalNotificationsComponent implements OnInit {
   notifications$: Observable<Array<GlobalNotification>>;
 
-  constructor(private globalNotificationsService: GlobalNotificationsService) { }
+  constructor(private globalNotificationsService: GlobalNotificationsService) {}
 
   ngOnInit() {
     this.notifications$ = this.globalNotificationsService.notifications$

@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './pages/home/home.component';
 import { AnimationsComponent } from './pages/animations/animations.component';
 import { RxjsPageComponent } from './pages/rxjs-page/rxjs-page.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 import { HeaderComponent } from './components/header/header.component';
 
@@ -38,6 +39,9 @@ import { LoginComponent } from './pages/login/login.component';
 import { GlobalNotificationsService } from './services/global-notifications.service';
 import { GlobalNotificationsPageComponent } from './pages/global-notifications-page/global-notifications-page.component';
 import { SimpleNotificationComponent } from './pages/global-notifications-page/children/simple-notification/simple-notification.component';
+import {
+  UltimateNotificationComponent
+ } from './pages/global-notifications-page/children/ultimate-notification/ultimate-notification.component';
 import { GlobalNotificationsComponent } from './components/global-notifications/global-notifications.component';
 import {
   GlobalSimpleNotificationComponent
@@ -46,6 +50,9 @@ import { AppErrorHandler } from './services/app-error.handler';
 import {
   GlobalTypedNotificationComponent
 } from './components/global-notifications/children/global-typed-notification/global-typed-notification.component';
+import {
+  GlobalNotificationComponent
+} from './components/global-notifications/children/global-notification/global-notification.component';
 import { TypedNotificationComponent } from './pages/global-notifications-page/children/typed-notification/typed-notification.component';
 
 @NgModule({
@@ -76,7 +83,10 @@ import { TypedNotificationComponent } from './pages/global-notifications-page/ch
     GlobalNotificationsComponent,
     GlobalSimpleNotificationComponent,
     GlobalTypedNotificationComponent,
-    TypedNotificationComponent
+    TypedNotificationComponent,
+    UltimateNotificationComponent,
+    GlobalNotificationComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

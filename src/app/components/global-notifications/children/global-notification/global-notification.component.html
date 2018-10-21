@@ -1,0 +1,39 @@
+<div class="notification-wrapper"
+     #notificationWrapper>
+    <div class="message"
+         [ngClass]="{
+            'extra-1': extraSpace === 1,
+            'extra-2': extraSpace === 2,
+            'extra-3': extraSpace === 3 }">
+        {{ notification.message }}
+    </div>
+    <div class="right-panel">
+        <form *ngIf="notification.hasInput"
+              [formGroup]="inputForm"
+              class="user-input-form"
+              novalidate>
+              <input *ngIf="notification.hasInput"
+                     formControlName="userInput"
+                     placeholder="Type something..." />
+        </form>
+        <a *ngIf="notification.linkTo"
+           routerLink="{{ notification.linkTo }}"
+           class="link">
+            Lets go!
+        </a>
+        <button *ngIf="notification.cancelButtonText"
+                class="cancel"
+                (click)="cancel()">
+            Cancel
+        </button>
+        <button *ngIf="notification.confirmButtonText"
+                class="confirm"
+                (click)="confirm()">
+            Confirm
+        </button>
+        <span *ngIf="notification.isClosable"
+              (click)="closeNotification()"
+              class="close">
+        </span>
+    </div>
+</div>

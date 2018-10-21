@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 
 import { SimpleNotificationComponent } from './children/simple-notification/simple-notification.component';
 import { TypedNotificationComponent } from './children/typed-notification/typed-notification.component';
+import { UltimateNotificationComponent } from './children/ultimate-notification/ultimate-notification.component';
 
 import { ExampleObject } from '../../interfaces/exampleObject';
 
@@ -19,6 +20,10 @@ export class GlobalNotificationsPageComponent {
     {
       component: TypedNotificationComponent,
       description: 'Button to add notification with type'
+    },
+    {
+      component: UltimateNotificationComponent,
+      description: 'Buttons to add custom notifications'
     }
   ];
 

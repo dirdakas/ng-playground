@@ -5,6 +5,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { AnimationsComponent } from './pages/animations/animations.component';
 import { RxjsPageComponent } from './pages/rxjs-page/rxjs-page.component';
 import { LoginComponent } from './pages/login/login.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { GlobalNotificationsPageComponent } from './pages/global-notifications-page/global-notifications-page.component';
 
 const appRoutes: Routes = [
@@ -13,7 +14,8 @@ const appRoutes: Routes = [
   { path: 'animations', component: AnimationsComponent, data: { animations: { page: 'animationsPage' } } },
   { path: 'rxjs-page', component: RxjsPageComponent },
   { path: 'global-notifications-page', component: GlobalNotificationsPageComponent },
-  { path: 'login', component: LoginComponent }
+  { path: 'login', component: LoginComponent },
+  { path: '404', component: NotFoundComponent }
 ];
 
 @NgModule({
