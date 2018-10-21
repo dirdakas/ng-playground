@@ -1,12 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { PublicHttpDataService } from '../../services/public-http-data.service';
 
-import { tap, first, switchMap, take } from 'rxjs/operators';
+import { tap, switchMap, take } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
 import { ExampleObject } from '../../interfaces/exampleObject';
 import { ProfileGithubComponent } from './children/profile-github/profile-github.component';
-import { pipe } from '@angular/core/src/render3/pipe';
 
 @Component({
   selector: 'app-rxjs-page',
@@ -27,9 +26,9 @@ export class RxjsPageComponent {
 
   users$: Observable<any>;
 
-  constructor(private publicHttpDataService: PublicHttpDataService) { }
+  constructor(private publicHttpDataService: PublicHttpDataService) {}
 
-  toggleExample(element: HTMLElement, index: number) {
+  toggleExample(element: HTMLElement, index: number): void {
     if (element.style.display === 'none') {
       element.style.display = 'block';
       this.examplesList[index].isActive = true;
@@ -42,7 +41,7 @@ export class RxjsPageComponent {
     }
   }
 
-  initDelayedAsyncCall() {
+  initDelayedAsyncCall(): void {
     setTimeout(() => {
       this.users$ = this.publicHttpDataService.getGitUser2('dirdakas');
     }, 2000);
@@ -56,7 +55,7 @@ export class RxjsPageComponent {
       .subscribe();
   }
 
-  // @TODO: netaip veikia kazkodel
+  // @TODO: check it, it works not as expected
   private getFirstLoginFromResponse(data: any): string {
     if (data && data.length > 0) {
       return data[0].login;

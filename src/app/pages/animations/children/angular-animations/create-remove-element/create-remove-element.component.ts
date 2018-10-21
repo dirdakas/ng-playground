@@ -1,12 +1,5 @@
 import { Component } from '@angular/core';
 
-import {
-  AnimationEvent,
-  AnimationBuilder,
-  style,
-  animate
-} from '@angular/animations';
-
 import { panelStateTrigger } from '../../../animations';
 
 @Component({

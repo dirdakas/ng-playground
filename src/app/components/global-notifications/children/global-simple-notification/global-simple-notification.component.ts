@@ -1,10 +1,4 @@
 import { Component, Input } from '@angular/core';
-import {
-  AnimationEvent,
-  AnimationBuilder,
-  style,
-  animate
-} from '@angular/animations';
 
 import { GlobalNotificationsService } from '../../../../services/global-notifications.service';
 

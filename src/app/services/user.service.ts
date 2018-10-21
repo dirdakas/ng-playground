@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { User } from '../interfaces/user';
 
-import { Observable, of, BehaviorSubject } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 
 export const GUEST_USER: User = {
   nickName: 'Guest'
@@ -25,7 +25,7 @@ export class UserService {
 
   user$: Observable<User> = this.userSubject.asObservable();
 
-  constructor(private _http: HttpClient) { }
+  constructor(private _http: HttpClient) {}
 
   mockLoginRequest(nickName: string): Observable<any> {
     return this._http

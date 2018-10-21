@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class SimpleLoadingBarComponent {
   isLoadingBarActive: boolean;
 
-  loadingBarClicked() {
+  loadingBarClicked(): void {
     this.isLoadingBarActive = true;
 
     setTimeout(() => {

@@ -2,12 +2,7 @@ import {
   animate,
   style,
   transition,
-  state,
-  trigger,
-  group,
-  keyframes,
-  query,
-  stagger
+  trigger
 } from '@angular/animations';
 
 const notificationStateTrigger = trigger('notificationState', [

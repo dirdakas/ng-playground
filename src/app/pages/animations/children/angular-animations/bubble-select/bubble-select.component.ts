@@ -1,10 +1,4 @@
 import { Component } from '@angular/core';
-import {
-  AnimationEvent,
-  AnimationBuilder,
-  style,
-  animate
-} from '@angular/animations';
 
 import { setBubbleStateTrigger } from '../../../animations';
 
@@ -16,5 +10,5 @@ import { setBubbleStateTrigger } from '../../../animations';
 })
 export class BubbleSelectComponent {
   selectedBubbleIndex: number;
-  simpleArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+  simpleArray: Array<number> = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 }

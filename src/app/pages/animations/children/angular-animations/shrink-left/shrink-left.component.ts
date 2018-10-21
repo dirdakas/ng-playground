@@ -1,10 +1,4 @@
 import { Component } from '@angular/core';
-import {
-  AnimationEvent,
-  AnimationBuilder,
-  style,
-  animate
-} from '@angular/animations';
 
 import { animateStateTrigger } from '../../../animations';
 
@@ -15,6 +9,10 @@ import { animateStateTrigger } from '../../../animations';
   animations: [ animateStateTrigger ]
 })
 export class ShrinkLeftComponent {
-  width = 700;
-  animate = false;
+  width: number;
+  animate: boolean;
+
+  constructor() {
+    this.width = 700;
+  }
 }

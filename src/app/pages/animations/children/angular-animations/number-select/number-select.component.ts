@@ -1,10 +1,4 @@
 import { Component } from '@angular/core';
-import {
-  AnimationEvent,
-  AnimationBuilder,
-  style,
-  animate
-} from '@angular/animations';
 
 import { setNumberStateTrigger } from '../../../animations';
 
@@ -16,5 +10,5 @@ import { setNumberStateTrigger } from '../../../animations';
 })
 export class NumberSelectComponent {
   inputNumber: number;
-  simpleArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+  simpleArray: Array<number> = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 }

@@ -1,13 +1,4 @@
-import { Component, HostBinding } from '@angular/core';
-
-import {
-  AnimationEvent,
-  AnimationBuilder,
-  style,
-  animate
-} from '@angular/animations';
-
-import { routeFadeStateTrigger } from '../../shared/route-animations';
+import { Component } from '@angular/core';
 
 import { RectangleCircleComponent } from './children/css/rectangle-circle/rectangle-circle.component';
 import { CubeRectangleComponent } from './children/css/cube-rectangle/cube-rectangle.component';
@@ -101,9 +92,9 @@ export class AnimationsComponent {
 
   // @HostBinding('@routeFadeState') routeAnimation = true;
 
-  constructor() { }
+  constructor() {}
 
-  toggleCollapsible(element: HTMLElement, index: number, list: Array<ExampleObject>) {
+  toggleCollapsible(element: HTMLElement, index: number, list: Array<ExampleObject>): void {
     if (element.style.display === 'none') {
       element.style.display = 'block';
       list[index]['isActive'] = true;
@@ -125,7 +116,7 @@ export class AnimationsComponent {
     this.toggleCollapsible(element, index, this.angular4AnimationList);
   }
 
-  showContent(element: HTMLElement) {
+  showContent(element: HTMLElement): void {
     if (element.style.display === 'none') {
       element.style.display = 'block';
     } else {

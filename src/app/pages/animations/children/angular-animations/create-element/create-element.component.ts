@@ -1,10 +1,5 @@
 import { Component } from '@angular/core';
-import {
-  AnimationEvent,
-  AnimationBuilder,
-  style,
-  animate
-} from '@angular/animations';
+import { AnimationEvent } from '@angular/animations';
 
 import { showListStateTrigger } from '../../../animations';
 
@@ -17,15 +12,15 @@ import { showListStateTrigger } from '../../../animations';
 export class CreateElementComponent {
   addElementResults: Array<number> = [];
 
-  addElement() {
+  addElement(): void {
     this.addElementResults.push(Math.random());
   }
 
-  onStart(event: AnimationEvent) {
+  onStart(event: AnimationEvent): void {
     console.log('start', event);
   }
 
-  onDone(event: AnimationEvent) {
+  onDone(event: AnimationEvent): void {
     console.log('done', event);
   }
 }

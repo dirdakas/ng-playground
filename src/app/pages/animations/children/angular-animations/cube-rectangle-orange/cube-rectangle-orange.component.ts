@@ -1,10 +1,4 @@
 import { Component } from '@angular/core';
-import {
-  AnimationEvent,
-  AnimationBuilder,
-  style,
-  animate
-} from '@angular/animations';
 
 import { clickedStateTrigger } from '../../../animations';
 
@@ -18,7 +12,7 @@ export class CubeRectangleOrangeComponent {
   clickedOrange = 'default';
   paragClick = 'default';
 
-  changeOrange() {
+  changeOrange(): void {
     switch (this.clickedOrange) {
       case 'default':
         this.clickedOrange = 'clicked';

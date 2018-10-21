@@ -1,10 +1,4 @@
 import { Component } from '@angular/core';
-import {
-  AnimationEvent,
-  AnimationBuilder,
-  style,
-  animate
-} from '@angular/animations';
 
 import { staggerListAnimationTrigger } from '../../../animations';
 
@@ -15,8 +9,8 @@ import { staggerListAnimationTrigger } from '../../../animations';
   animations: [ staggerListAnimationTrigger ]
 })
 export class StaggerAnimationComponent {
-  showStaggerList = false;
-  staggerAnimationList = [
+  showStaggerList: boolean;
+  staggerAnimationList: Array<number> = [
     Math.random(),
     Math.random(),
     Math.random()
