@@ -2,6 +2,10 @@
 
 Learning playground for Angular
 
+# Instalation
+
+Run `npm i` for installing node_modules
+
 # Ng6
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
