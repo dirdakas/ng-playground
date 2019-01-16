@@ -4,10 +4,8 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 
 import { GlobalNotificationsService } from '../../../../services/global-notifications.service';
 
-import {
-  GlobalNotification,
-  AnimationStates
- } from '../../../../interfaces/globalNotification';
+import { IGlobalNotification } from '../../../../interfaces/global-notification';
+import { IAnimationStates } from 'src/app/interfaces/animation-states';
 
 @Component({
   selector: 'app-global-notification',
@@ -15,10 +13,10 @@ import {
   styleUrls: ['./global-notification.component.scss']
 })
 export class GlobalNotificationComponent implements OnInit {
-  @Input() notification: GlobalNotification;
+  @Input() notification: IGlobalNotification;
   @ViewChild('notificationWrapper') _self: ElementRef;
 
-  animations: AnimationStates = {
+  animations: IAnimationStates = {
     create: null,
     remove: null
   };

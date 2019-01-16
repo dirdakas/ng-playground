@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 
 import { UserService } from '../../services/user.service';
 
-import { User } from '../../interfaces/user';
+import { IUser } from '../../interfaces/user';
 
 import { tap, take, map, catchError } from 'rxjs/operators';
 import { EMPTY } from 'rxjs';
@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
         .pipe(
           take(1),
           map((response: any) => response[0]),
-          tap((_user: User) => {
+          tap((_user: IUser) => {
             if (_user) {
                this.userService.login(_user);
                this.router.navigate(['/home']);

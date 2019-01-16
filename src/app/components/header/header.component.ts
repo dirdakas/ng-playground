@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { UserService, GUEST_USER } from '../../services/user.service';
 
-import { User } from '../../interfaces/user';
+import { IUser } from '../../interfaces/user';
 
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -20,7 +20,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     this.isLoggedIn$ = this.userService.user$
       .pipe(
-        map((user: User) => user !== GUEST_USER)
+        map((user: IUser) => user !== GUEST_USER)
       );
   }
 

@@ -4,7 +4,7 @@ import { PublicHttpDataService } from '../../services/public-http-data.service';
 import { tap, switchMap, take } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
-import { ExampleObject } from '../../interfaces/exampleObject';
+import { IExampleObject } from '../../interfaces/example-object';
 import { ProfileGithubComponent } from './children/profile-github/profile-github.component';
 
 @Component({
@@ -13,7 +13,7 @@ import { ProfileGithubComponent } from './children/profile-github/profile-github
   styleUrls: ['./rxjs-page.component.scss']
 })
 export class RxjsPageComponent {
-  examplesList: Array<ExampleObject> = [
+  examplesList: IExampleObject[] = [
     {
       component: ProfileGithubComponent,
       description: 'Search for GitHub profile'

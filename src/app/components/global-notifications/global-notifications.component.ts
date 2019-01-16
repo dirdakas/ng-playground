@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { GlobalNotificationsService } from '../../services/global-notifications.service';
 
-import { GlobalNotification } from '../../interfaces/globalNotification';
+import { IGlobalNotification } from '../../interfaces/global-notification';
 
 import { Observable } from 'rxjs';
 
@@ -12,7 +12,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./global-notifications.component.scss']
 })
 export class GlobalNotificationsComponent implements OnInit {
-  notifications$: Observable<Array<GlobalNotification>>;
+  notifications$: Observable<IGlobalNotification[]>;
 
   constructor(private globalNotificationsService: GlobalNotificationsService) {}
 

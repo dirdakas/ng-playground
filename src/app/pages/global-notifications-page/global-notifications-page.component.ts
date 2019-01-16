@@ -4,7 +4,7 @@ import { SimpleNotificationComponent } from './children/simple-notification/simp
 import { TypedNotificationComponent } from './children/typed-notification/typed-notification.component';
 import { UltimateNotificationComponent } from './children/ultimate-notification/ultimate-notification.component';
 
-import { ExampleObject } from '../../interfaces/exampleObject';
+import { IExampleObject } from '../../interfaces/example-object';
 
 @Component({
   selector: 'app-global-notifications-page',
@@ -12,7 +12,7 @@ import { ExampleObject } from '../../interfaces/exampleObject';
   styleUrls: ['./global-notifications-page.component.scss']
 })
 export class GlobalNotificationsPageComponent {
-  examplesList: Array<ExampleObject> = [
+  examplesList: IExampleObject[] = [
     {
       component: SimpleNotificationComponent,
       description: 'Button to add simple notification to global service and show it'

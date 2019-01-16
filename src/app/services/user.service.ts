@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { User } from '../interfaces/user';
+import { IUser } from '../interfaces/user';
 
 import { Observable, BehaviorSubject } from 'rxjs';
 
-export const GUEST_USER: User = {
+export const GUEST_USER: IUser = {
   nickName: 'Guest'
 };
 
-export const LOGGED_USER: User = {
+export const LOGGED_USER: IUser = {
   firstName: 'Tom',
   lastName: 'Timmoty',
   nickName: 'Tom&Tim'
@@ -23,7 +23,7 @@ export class UserService {
 
   private userSubject = new BehaviorSubject(GUEST_USER);
 
-  user$: Observable<User> = this.userSubject.asObservable();
+  user$: Observable<IUser> = this.userSubject.asObservable();
 
   constructor(private _http: HttpClient) {}
 
@@ -32,7 +32,7 @@ export class UserService {
       .get(UserService.GET_USER_BY_NICKNAME + nickName);
   }
 
-  login(user: User): void {
+  login(user: IUser): void {
     this.userSubject.next(user);
   }
 

@@ -4,7 +4,7 @@ import { GlobalNotificationsService } from '../../../../services/global-notifica
 
 import { notificationStateTrigger } from '../../notification-animations';
 
-import { GlobalNotification } from '../../../../interfaces/globalNotification';
+import { IGlobalNotification } from '../../../../interfaces/global-notification';
 
 @Component({
   selector: 'app-global-simple-notification',
@@ -13,7 +13,7 @@ import { GlobalNotification } from '../../../../interfaces/globalNotification';
   animations: [ notificationStateTrigger ]
 })
 export class GlobalSimpleNotificationComponent {
-  @Input() notification: GlobalNotification;
+  @Input() notification: IGlobalNotification;
 
   isVisible: boolean;
 

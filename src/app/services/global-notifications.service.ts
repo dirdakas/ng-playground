@@ -6,26 +6,26 @@ import {
   AnimationFactory
 } from '@angular/animations';
 
-import { GlobalNotification } from '../interfaces/globalNotification';
+import { IGlobalNotification } from '../interfaces/global-notification';
+import { INotificationColors } from '../interfaces/notification-colors';
 
 import { NotificationTypeEnum } from '../shared/notificationType.enum';
-import { NotificationColors } from '../interfaces/globalNotification';
 
 import { Observable, BehaviorSubject } from 'rxjs';
 
-const EMPTY_NOTIFICATIONS: Array<GlobalNotification> = [];
+const EMPTY_NOTIFICATIONS: IGlobalNotification[] = [];
 
 @Injectable({
   providedIn: 'root'
 })
 export class GlobalNotificationsService {
   private notificationsSubject = new BehaviorSubject(EMPTY_NOTIFICATIONS);
-  notifications$: Observable<Array<GlobalNotification>> = this.notificationsSubject.asObservable();
+  notifications$: Observable<IGlobalNotification[]> = this.notificationsSubject.asObservable();
 
   constructor(private animationBuilder: AnimationBuilder) {}
 
   addSimpleNotification(message: string): void {
-    const notification: GlobalNotification = {
+    const notification: IGlobalNotification = {
       id: 0,
       message: message,
       isUltimante: false,
@@ -36,7 +36,7 @@ export class GlobalNotificationsService {
   }
 
   addTypedNotification(message: string, type: NotificationTypeEnum): void {
-    const notification: GlobalNotification = {
+    const notification: IGlobalNotification = {
       id: 0,
       message: message,
       isUltimante: false,
@@ -49,14 +49,14 @@ export class GlobalNotificationsService {
   removeNotification(id: number): void {
     let newNotificationList = this.notificationsSubject.getValue();
     newNotificationList = newNotificationList
-      .filter((notification: GlobalNotification) => {
+      .filter((notification: IGlobalNotification) => {
         return notification.id !== id;
       });
     this.notificationsSubject.next(newNotificationList);
   }
 
-  getCreationAnimation(notification: GlobalNotification): AnimationFactory {
-    const colors: NotificationColors = this.getNotificationColors(notification);
+  getCreationAnimation(notification: IGlobalNotification): AnimationFactory {
+    const colors: INotificationColors = this.getNotificationColors(notification);
 
     return this.animationBuilder.build([
       style({
@@ -91,11 +91,11 @@ export class GlobalNotificationsService {
     ]);
   }
 
-  addNotification(notification: GlobalNotification): void {
+  addNotification(notification: IGlobalNotification): void {
     const newNotificationList = this.notificationsSubject.getValue();
     const lastNotificationInList = this.getLastNotification();
     const id = lastNotificationInList ? (lastNotificationInList.id + 1) : 0;
-    const newMessage: GlobalNotification = {
+    const newMessage: IGlobalNotification = {
       id: id,
       isClosable: notification.isClosable,
       message: notification.message,
@@ -114,13 +114,13 @@ export class GlobalNotificationsService {
     this.notificationsSubject.next(newNotificationList);
   }
 
-  private getLastNotification(): GlobalNotification {
+  private getLastNotification(): IGlobalNotification {
     return this.notificationsSubject.getValue()
       .slice(-1)[0];
   }
 
-  private getNotificationColors(notification: GlobalNotification): NotificationColors {
-    let result: NotificationColors = {
+  private getNotificationColors(notification: IGlobalNotification): INotificationColors {
+    let result: INotificationColors = {
       background: '#ffeded', // $fair-pink
       color: '#ff6600' // $blaze-orange
     };

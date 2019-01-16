@@ -4,7 +4,7 @@ import { trigger, transition, query, style, animate, group } from '@angular/anim
 import { GlobalNotificationsService } from './services/global-notifications.service';
 import { Subscription } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import { GlobalNotification } from './interfaces/globalNotification';
+import { IGlobalNotification } from './interfaces/global-notification';
 
 @Component({
   selector: 'app-root',
@@ -41,7 +41,7 @@ export class AppComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.globalNotificationsSub = this.globalNotificationsService.notifications$
       .pipe(
-        tap((notifications: Array<GlobalNotification>) => {
+        tap((notifications: IGlobalNotification[]) => {
           console.log('notifications', notifications);
         })
       )

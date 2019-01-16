@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { GlobalNotificationsService } from '../../../../services/global-notifications.service';
 
 import { NotificationTypeEnum } from '../../../../shared/notificationType.enum';
-import { GlobalNotification } from '../../../../interfaces/globalNotification';
+import { IGlobalNotification } from '../../../../interfaces/global-notification';
 
 @Component({
   selector: 'app-ultimate-notification',
@@ -14,7 +14,7 @@ export class UltimateNotificationComponent {
   constructor(private globalNotificationsService: GlobalNotificationsService) { }
 
   showNotification(type: NotificationTypeEnum): void {
-    const notification: GlobalNotification = {
+    const notification: IGlobalNotification = {
       id: 0,
       type: type,
       message: 'It Works!!!! type === ' + type.toString(),

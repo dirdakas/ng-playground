@@ -1,4 +1,4 @@
-export interface ExampleObject {
+export interface IExampleObject {
   component?: any;
   service?: any;
   description: string;
