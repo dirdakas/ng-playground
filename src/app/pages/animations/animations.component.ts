@@ -1,19 +1,19 @@
 import { Component } from '@angular/core';
 
-import { RectangleCircleComponent } from './children/css/rectangle-circle/rectangle-circle.component';
-import { CubeRectangleComponent } from './children/css/cube-rectangle/cube-rectangle.component';
-import { SimpleLoadingBarComponent } from './children/css/simple-loading-bar/simple-loading-bar.component';
-import { CubeRectangleOrangeComponent } from './children/angular-animations/cube-rectangle-orange/cube-rectangle-orange.component';
-import { NumberSelectComponent } from './children/angular-animations/number-select/number-select.component';
-import { BubbleSelectComponent } from './children/angular-animations/bubble-select/bubble-select.component';
-import { ToggleElementComponent } from './children/angular-animations/toggle-element/toggle-element.component';
-import { ShrinkLeftComponent } from './children/angular-animations/shrink-left/shrink-left.component';
-import { HoverExpandLeftComponent } from './children/css/hover-expand-left/hover-expand-left.component';
-import { CreateElementComponent } from './children/angular-animations/create-element/create-element.component';
-import { MoveLeftComponent } from './children/css/move-left/move-left.component';
-import { MoveLeftProgComponent } from './children/angular-animations/move-left-prog/move-left-prog.component';
-import { CreateRemoveElementComponent } from './children/angular-animations/create-remove-element/create-remove-element.component';
-import { StaggerAnimationComponent } from './children/angular-animations/stagger-animation/stagger-animation.component';
+// import { RectangleCircleComponent } from './children/css/rectangle-circle/rectangle-circle.component';
+// import { CubeRectangleComponent } from './children/css/cube-rectangle/cube-rectangle.component';
+// import { SimpleLoadingBarComponent } from './children/css/simple-loading-bar/simple-loading-bar.component';
+// import { CubeRectangleOrangeComponent } from './children/angular-animations/cube-rectangle-orange/cube-rectangle-orange.component';
+// import { NumberSelectComponent } from './children/angular-animations/number-select/number-select.component';
+// import { BubbleSelectComponent } from './children/angular-animations/bubble-select/bubble-select.component';
+// import { ToggleElementComponent } from './children/angular-animations/toggle-element/toggle-element.component';
+// import { ShrinkLeftComponent } from './children/angular-animations/shrink-left/shrink-left.component';
+// import { HoverExpandLeftComponent } from './children/css/hover-expand-left/hover-expand-left.component';
+// import { CreateElementComponent } from './children/angular-animations/create-element/create-element.component';
+// import { MoveLeftComponent } from './children/css/move-left/move-left.component';
+// import { MoveLeftProgComponent } from './children/angular-animations/move-left-prog/move-left-prog.component';
+// import { CreateRemoveElementComponent } from './children/angular-animations/create-remove-element/create-remove-element.component';
+// import { StaggerAnimationComponent } from './children/angular-animations/stagger-animation/stagger-animation.component';
 import { IExampleObject } from '../../interfaces/example-object';
 
 @Component({
@@ -27,65 +27,65 @@ import { IExampleObject } from '../../interfaces/example-object';
 export class AnimationsComponent {
   cssAnimationList: IExampleObject[] = [
     {
-      component: RectangleCircleComponent,
+      component: 'RectangleCircleComponent',
       description: 'On click rectangle will move to the right while transforming into circle'
     },
     {
-      component: CubeRectangleComponent,
+      component: 'CubeRectangleComponent',
       description: 'On click cube will expand to rectangle'
     },
     {
-      component: SimpleLoadingBarComponent,
+      component: 'SimpleLoadingBarComponent',
       description: 'On click for 3seconds there will be loading bar animation, which is repeatable'
     },
     {
-      component: HoverExpandLeftComponent,
+      component: 'HoverExpandLeftComponent',
       description: 'On hover rectangle will expand and show hidden text'
     },
     {
-      component: MoveLeftComponent,
+      component: 'MoveLeftComponent',
       description: 'On click element will move to left'
     }
   ];
 
   angular2AnimationList: IExampleObject[] = [
     {
-      component: CubeRectangleOrangeComponent,
+      component: 'CubeRectangleOrangeComponent',
       description: 'On click one cube will become rentagle, other one is multi-clickble for animation'
     },
     {
-      component: NumberSelectComponent,
+      component: 'NumberSelectComponent',
       description: 'On number input 0..9 number animates, which was selected'
     },
     {
-      component: BubbleSelectComponent,
+      component: 'BubbleSelectComponent',
       description: 'On bubble click - it would animate and become selected'
     },
     {
-      component: ToggleElementComponent,
+      component: 'ToggleElementComponent',
       description: 'On click element will be created/destroyed will animation for appear/dissapear'
     },
     {
-      component: ShrinkLeftComponent,
+      component: 'ShrinkLeftComponent',
       description: 'On click it will shrink/decrease to left direction'
     },
     {
-      component: CreateElementComponent,
+      component: 'CreateElementComponent',
       description: 'On click it will create new element and animates it\'s appearing'
     }
   ];
 
   angular4AnimationList: IExampleObject[] = [
     {
-      component: MoveLeftProgComponent,
+      component: 'MoveLeftProgComponent',
       description: 'On click will move element to the left programically'
     },
     {
-      component: CreateRemoveElementComponent,
+      component: 'CreateRemoveElementComponent',
       description: 'On element create/remove it would animate. Grouped query elements'
     },
     {
-      component: StaggerAnimationComponent,
+      component: 'StaggerAnimationComponent',
       description: 'On create -> will create elements with animations using stagger'
     }
   ];

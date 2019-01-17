@@ -100,10 +100,12 @@ const setBubbleStateTrigger = trigger('bubbleState', [
 ]);
 
 const showTextStateTrigger = trigger('showText', [
-  // void - when el is not in the DOM at start/end
-  // * wild card -> any state
-  // can replace 'void => *' with ':enter'
-  // can replace '* => void' with ':leave'
+  /**
+    void - when el is not in the DOM at start/end
+    * wild card -> any state
+    can replace 'void => *' with ':enter'
+    can replace '* => void' with ':leave'
+  */
   transition('void => *', [
     style({
       opacity: 0
@@ -173,11 +175,13 @@ const animateStateTrigger = trigger('animateState', [
   ])
 ]);
 
-// :enter / :leave  => Query added/ removed elements
-// :animating  => Query all elements which are currently playing an animation
-// @triggerName  => Query all elements which use that animation trigger
-// @*  => Query all elements which have ANY animation trigger
-// :self  => Query the parent element (i.e. the one on which the trigger triggering the transition was applied on)
+/**
+  :enter / :leave  => Query added/ removed elements
+  :animating  => Query all elements which are currently playing an animation
+  @triggerName  => Query all elements which use that animation trigger
+  @*  => Query all elements which have ANY animation trigger
+  :self  => Query the parent element (i.e. the one on which the trigger triggering the transition was applied on)
+*/
 const panelStateTrigger = trigger('panelState', [
   transition(':enter', [
     group([
@@ -225,9 +229,11 @@ const panelStateTrigger = trigger('panelState', [
         transform: 'scale(1.1)'
       })),
       animate(100)
-      // limit: 1 if only 1 element inside is animated
-      // optional -> when not sure how many animated elements inside and IF
-      // they are animated instantly (prevent error)
+      /**
+        limit: 1 if only 1 element inside is animated
+        optional -> when not sure how many animated elements inside and IF
+        they are animated instantly (prevent error)
+       */
     ], { optional: true }),
     query('div p, button', [
       style({

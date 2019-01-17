@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
+import { IGitHubUser, IGitHubReposResponse } from '../interfaces/github';
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +17,8 @@ export class GithubService {
     this.username = 'bradtraversy';
   }
 
-  getUser(): Observable<any> {
-    return this._http.get(
+  getUser(): Observable<IGitHubUser> {
+    return this._http.get<IGitHubUser>(
         'http://api.github.com/users/' +
         this.username + '?client_id=' +
         this.client_id +
@@ -26,8 +27,8 @@ export class GithubService {
       );
   }
 
-  getRepos(): Observable<any> {
-    return this._http.get(
+  getRepos(): Observable<IGitHubReposResponse[]> {
+    return this._http.get<IGitHubReposResponse[]>(
         'http://api.github.com/users/' +
         this.username +
         '/repos?client_id=' +

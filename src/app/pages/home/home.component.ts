@@ -14,5 +14,7 @@ import { UserService } from '../../services/user.service';
 })
 export class HomeComponent {
   // @HostBinding('@routeFadeState') routeAnimation = true;
-  constructor(private userService: UserService) {}
+  constructor(
+    public userService: UserService
+  ) {}
 }

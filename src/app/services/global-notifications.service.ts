@@ -121,32 +121,32 @@ export class GlobalNotificationsService {
 
   private getNotificationColors(notification: IGlobalNotification): INotificationColors {
     let result: INotificationColors = {
-      background: '#ffeded', // $fair-pink
-      color: '#ff6600' // $blaze-orange
+      background: '#ffeded', /* $fair-pink */
+      color: '#ff6600' /* $blaze-orange */
     };
     switch (notification.type) {
       case NotificationTypeEnum.error:
         result = {
-          background: '#f5c2ed', // $error-light
-          color: '#d9534f' // $error-dark
+          background: '#f5c2ed', /* $error-light */
+          color: '#d9534f' /* $error-dark */
         };
         break;
       case NotificationTypeEnum.warning:
         result = {
-          background: '#f8fdd7', // $warning-light
-          color: '#f0ad4e' // $warning-dark
+          background: '#f8fdd7', /* $warning-light */
+          color: '#f0ad4e' /* $warning-dark */
         };
         break;
       case NotificationTypeEnum.info:
         result = {
-          background: '#befbff', // $info-light
-          color: '#5bc0de' // $info-dark
+          background: '#befbff', /* $info-light */
+          color: '#5bc0de' /* $info-dark */
         };
         break;
       case NotificationTypeEnum.success:
         result = {
-          background: '#ddfdd1', // $success-light
-          color: '#5cb85c' // $success-dark
+          background: '#ddfdd1', /* $success-light */
+          color: '#5cb85c' /* $success-dark */
         };
         break;
       default:

@@ -7,13 +7,13 @@ import { EMPTY } from 'rxjs';
   providedIn: 'root'
 })
 export class AppErrorHandler implements ErrorHandler {
-  handleError(error: any) {
-    // @TODO: here we can handle errors globally if we want or hide it
+  handleError(error: HttpErrorResponse) {
+    /* @TODO: here we can handle errors globally if we want or hide it */
     if (error instanceof HttpErrorResponse && error.status >= 500) {
-      // @TODO: handle http errors
+      /* @TODO: handle http errors */
     } else {
-      // @TODO: handle other errors somehow or just ignore them
-      // throwError(error);
+      /* @TODO: handle other errors somehow or just ignore them */
+      /* throwError(error); */
       return EMPTY;
     }
     console.error('----- error', error);

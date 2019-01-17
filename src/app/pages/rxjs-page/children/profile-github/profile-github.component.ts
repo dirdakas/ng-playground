@@ -5,6 +5,7 @@ import { GithubService } from '../../../../services/github.service';
 
 import { Observable } from 'rxjs';
 import { take, tap, debounceTime } from 'rxjs/operators';
+import { IGitHubReposResponse, IGitHubUser } from 'src/app/interfaces/github';
 
 @Component({
   selector: 'app-profile-github',
@@ -12,8 +13,8 @@ import { take, tap, debounceTime } from 'rxjs/operators';
   styleUrls: ['./profile-github.component.scss']
 })
 export class ProfileGithubComponent implements OnInit {
-  user$: Observable<any>;
-  repos$: Observable<any>;
+  user$: Observable<IGitHubUser>;
+  repos$: Observable<IGitHubReposResponse[]>;
   usernameForm: FormGroup;
 
   constructor(
@@ -42,14 +43,20 @@ export class ProfileGithubComponent implements OnInit {
     this.user$ = this._githubService.getUser()
       .pipe(
         take(1),
-        tap(() => this.getRepos())
+        tap((data: IGitHubUser) => {
+          this.getRepos();
+          console.log('data?', data);
+        })
       );
   }
 
   private getRepos(): void {
     this.repos$ = this._githubService.getRepos()
       .pipe(
-        take(1)
+        take(1),
+        tap((res: IGitHubReposResponse[]) => {
+          console.log('res rep', res);
+        })
       );
   }
 }

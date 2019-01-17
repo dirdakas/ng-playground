@@ -1,6 +1,6 @@
 export interface IExampleObject {
-  component?: any;
-  service?: any;
+  component?: string;
+  service?: string;
   description: string;
   isActive?: boolean;
 }

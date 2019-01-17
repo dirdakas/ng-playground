@@ -8,6 +8,7 @@ import { IUser } from '../../interfaces/user';
 
 import { tap, take, map, catchError } from 'rxjs/operators';
 import { EMPTY } from 'rxjs';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,7 @@ import { EMPTY } from 'rxjs';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
 
-  // @TODO: used for simple error, 404 user
+  /* @TODO: used for simple error, 404 user */
   userNotFound: boolean;
 
   constructor(
@@ -40,18 +41,18 @@ export class LoginComponent implements OnInit {
       this.userService.mockLoginRequest(this.loginForm.get('username').value)
         .pipe(
           take(1),
-          map((response: any) => response[0]),
+          map((response: IUser[]) => response[0]),
           tap((_user: IUser) => {
             if (_user) {
                this.userService.login(_user);
                this.router.navigate(['/home']);
             } else {
-              // @TODO: 404 add with form validation
+              /* @TODO: 404 add with form validation */
               this.userNotFound = true;
             }
           }),
-          catchError((_err: any) => {
-            // @TODO: add http error notifications
+          catchError((_err: HttpErrorResponse) => {
+            /* @TODO: add http error notifications */
             console.log('err', _err);
 
             return EMPTY;

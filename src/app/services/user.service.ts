@@ -27,9 +27,9 @@ export class UserService {
 
   constructor(private _http: HttpClient) {}
 
-  mockLoginRequest(nickName: string): Observable<any> {
+  mockLoginRequest(nickName: string): Observable<IUser[]> {
     return this._http
-      .get(UserService.GET_USER_BY_NICKNAME + nickName);
+      .get<IUser[]>(UserService.GET_USER_BY_NICKNAME + nickName);
   }
 
   login(user: IUser): void {

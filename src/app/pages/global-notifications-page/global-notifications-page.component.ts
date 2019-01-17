@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 
-import { SimpleNotificationComponent } from './children/simple-notification/simple-notification.component';
-import { TypedNotificationComponent } from './children/typed-notification/typed-notification.component';
-import { UltimateNotificationComponent } from './children/ultimate-notification/ultimate-notification.component';
+// import { SimpleNotificationComponent } from './children/simple-notification/simple-notification.component';
+// import { TypedNotificationComponent } from './children/typed-notification/typed-notification.component';
+// import { UltimateNotificationComponent } from './children/ultimate-notification/ultimate-notification.component';
 
 import { IExampleObject } from '../../interfaces/example-object';
 
@@ -14,15 +14,15 @@ import { IExampleObject } from '../../interfaces/example-object';
 export class GlobalNotificationsPageComponent {
   examplesList: IExampleObject[] = [
     {
-      component: SimpleNotificationComponent,
+      component: 'SimpleNotificationComponent',
       description: 'Button to add simple notification to global service and show it'
     },
     {
-      component: TypedNotificationComponent,
+      component: 'TypedNotificationComponent',
       description: 'Button to add notification with type'
     },
     {
-      component: UltimateNotificationComponent,
+      component: 'UltimateNotificationComponent',
       description: 'Buttons to add custom notifications'
     }
   ];

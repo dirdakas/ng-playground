@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { PublicHttpDataService } from '../../services/public-http-data.service';
 
-import { tap, switchMap, take } from 'rxjs/operators';
+import { switchMap, take } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
 import { IExampleObject } from '../../interfaces/example-object';
-import { ProfileGithubComponent } from './children/profile-github/profile-github.component';
+// import { ProfileGithubComponent } from './children/profile-github/profile-github.component';
+import { IGitHubUsers } from 'src/app/interfaces/github';
 
 @Component({
   selector: 'app-rxjs-page',
@@ -15,7 +16,7 @@ import { ProfileGithubComponent } from './children/profile-github/profile-github
 export class RxjsPageComponent {
   examplesList: IExampleObject[] = [
     {
-      component: ProfileGithubComponent,
+      component: 'ProfileGithubComponent',
       description: 'Search for GitHub profile'
     },
     {
@@ -24,7 +25,7 @@ export class RxjsPageComponent {
     }
   ];
 
-  users$: Observable<any>;
+  users$: Observable<IGitHubUsers[]>;
 
   constructor(private publicHttpDataService: PublicHttpDataService) {}
 
@@ -49,14 +50,13 @@ export class RxjsPageComponent {
     this.publicHttpDataService.getGitUser2('dirdakas')
       .pipe(
         take(1),
-        switchMap((data: any) => this.getFirstLoginFromResponse(data)),
-        tap((res: any) => console.log('res', res))
+        switchMap((data: IGitHubUsers[]) => this.getFirstLoginFromResponse(data))
       )
       .subscribe();
   }
 
-  // @TODO: check it, it works not as expected
-  private getFirstLoginFromResponse(data: any): string {
+  /* @TODO: check it, it works not as expected  */
+  private getFirstLoginFromResponse(data: IGitHubUsers[]): string {
     if (data && data.length > 0) {
       return data[0].login;
     }
