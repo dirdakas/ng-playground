@@ -14,7 +14,7 @@ import { IAnimationStates } from 'src/app/interfaces/animation-states';
 })
 export class GlobalNotificationComponent implements OnInit {
   @Input() notification: IGlobalNotification;
-  @ViewChild('notificationWrapper') _self: ElementRef;
+  @ViewChild('notificationWrapper', { static: true }) _self: ElementRef;
 
   animations: IAnimationStates = {
     create: null,
