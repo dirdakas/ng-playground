@@ -9,7 +9,7 @@
     "no-consecutive-blank-lines": true,
     "no-irregular-whitespace": true,
     "no-unnecessary-qualifier": true,
-    "no-any": true,
+    "no-any": false,
     "only-arrow-functions": true,
     "no-unused-variable": true,
     "arrow-return-shorthand": true,

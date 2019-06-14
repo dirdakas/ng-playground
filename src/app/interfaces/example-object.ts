@@ -1,5 +1,5 @@
 export interface IExampleObject {
-  component?: string;
+  component?: any;
   service?: string;
   description: string;
   isActive?: boolean;

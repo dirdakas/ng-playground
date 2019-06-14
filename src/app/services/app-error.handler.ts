@@ -8,6 +8,8 @@ import { EMPTY } from 'rxjs';
 })
 export class AppErrorHandler implements ErrorHandler {
   handleError(error: HttpErrorResponse) {
+    console.error('----- error', error);
+
     /* @TODO: here we can handle errors globally if we want or hide it */
     if (error instanceof HttpErrorResponse && error.status >= 500) {
       /* @TODO: handle http errors */
@@ -16,6 +18,5 @@ export class AppErrorHandler implements ErrorHandler {
       /* throwError(error); */
       return EMPTY;
     }
-    console.error('----- error', error);
   }
 }

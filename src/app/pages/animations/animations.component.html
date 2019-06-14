@@ -7,12 +7,8 @@
                     <b>Toggle to show/hide: </b>
                     <i>{{ animation.description }}</i>
                 </button>
-                <div class="content" #cssAnimation style="display: none;">
-                    <app-rectangle-circle *ngIf="0 === index && animation.isActive" class="component-content-wrapper"></app-rectangle-circle>
-                    <app-cube-rectangle *ngIf="1 === index && animation.isActive" class="component-content-wrapper"></app-cube-rectangle>
-                    <app-simple-loading-bar *ngIf="2 === index && animation.isActive" class="component-content-wrapper"></app-simple-loading-bar>
-                    <!-- <app-hover-expand-left *ngIf="3 === index && animation.isActive" class="component-content-wrapper"></app-hover-expand-left> -->
-                    <app-move-left *ngIf="4 === index && animation.isActive" class="component-content-wrapper"></app-move-left>
+                <div class="content content-animation-wrapper" #cssAnimation style="display: none;">
+                    <template #cssAnimationContainer></template>
                 </div>
             </div>
         </div>
@@ -25,13 +21,8 @@
                     <b>Toggle to show/hide: </b>
                     <i>{{ animation.description }}</i>
                 </button>
-                <div class="content" #ng2Animation style="display: none;">
-                    <app-cube-rectangle-orange *ngIf="0 === index && animation.isActive" class="component-content-wrapper"></app-cube-rectangle-orange>
-                    <app-number-select *ngIf="1 === index && animation.isActive" class="component-content-wrapper"></app-number-select>
-                    <app-bubble-select *ngIf="2 === index && animation.isActive" class="component-content-wrapper"></app-bubble-select>
-                    <app-toggle-element *ngIf="3 === index && animation.isActive" class="component-content-wrapper"></app-toggle-element>
-                    <app-shrink-left *ngIf="4 === index && animation.isActive" class="component-content-wrapper"></app-shrink-left>
-                    <app-create-element *ngIf="5 === index && animation.isActive" class="component-content-wrapper"></app-create-element>
+                <div class="content content-animation-wrapper" #ng2Animation style="display: none;">
+                    <template #ng2AnimationContainer></template>
                 </div>
             </div>
         </div>
@@ -44,10 +35,8 @@
                     <b>Toggle to show/hide: </b>
                     <i>{{ animation.description }}</i>
                 </button>
-                <div class="content" #ng4Animation style="display: none;">
-                    <app-move-left-prog *ngIf="0 === index && animation.isActive" class="component-content-wrapper"></app-move-left-prog>
-                    <app-create-remove-element *ngIf="1 === index && animation.isActive" class="component-content-wrapper"></app-create-remove-element>
-                    <app-stagger-animation *ngIf="2 === index && animation.isActive" class="component-content-wrapper"></app-stagger-animation>
+                <div class="content content-animation-wrapper" #ng4Animation style="display: none;">
+                    <template #ng4AnimationContainer></template>
                 </div>
             </div>
         </div>
