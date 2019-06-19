@@ -8,6 +8,8 @@ import { NotificationTypeEnum } from '../../../../shared/notificationType.enum';
   styleUrls: ['./typed-notification.component.scss']
 })
 export class TypedNotificationComponent {
+  notificationType: typeof NotificationTypeEnum = NotificationTypeEnum;
+
   constructor(private globalNotificationsService: GlobalNotificationsService) { }
 
   showNotification(type: NotificationTypeEnum): void {

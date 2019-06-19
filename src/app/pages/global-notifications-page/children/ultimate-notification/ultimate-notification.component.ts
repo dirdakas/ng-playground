@@ -11,6 +11,8 @@ import { IGlobalNotification } from '../../../../interfaces/global-notification'
   styleUrls: ['./ultimate-notification.component.scss']
 })
 export class UltimateNotificationComponent {
+  notificationType: typeof NotificationTypeEnum = NotificationTypeEnum;
+
   constructor(private globalNotificationsService: GlobalNotificationsService) { }
 
   showNotification(type: NotificationTypeEnum): void {
