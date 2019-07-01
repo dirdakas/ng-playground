@@ -1,9 +1,14 @@
-import { Component, Input, OnInit, ViewChild, ElementRef } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnInit,
+  ViewChild,
+  ElementRef
+} from '@angular/core';
 import { AnimationPlayer } from '@angular/animations';
 import { FormGroup, FormBuilder } from '@angular/forms';
 
-import { GlobalNotificationsService } from '../../../../services/global-notifications.service';
-
+import { GlobalNotificationsService } from '../../../../services/global-notifications/global-notifications.service';
 import { IGlobalNotification } from '../../../../interfaces/global-notification';
 import { IAnimationStates } from 'src/app/interfaces/animation-states';
 
@@ -29,7 +34,7 @@ export class GlobalNotificationComponent implements OnInit {
     private fb: FormBuilder
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.calculateExtraSpaceNeeded();
     this.createAnimations();
     this.playAnimation('create');
@@ -51,23 +56,23 @@ export class GlobalNotificationComponent implements OnInit {
 
   cancel(): void {
     if (this.notification.cancelFunction) {
-      alert('Cancel clicked with function in console log');
+      console.info('Cancel clicked with function in console log');
       this.notification.cancelFunction();
     } else {
-      alert('just alert without function');
+      console.info('just alert without function');
     }
     this.closeNotification();
   }
 
   confirm(): void {
     if (this.notification.hasInput && this.notification.confirmFunction) {
-      alert('Confirm clicked with input and function: ' + this.inputForm.get('userInput').value);
+      console.info('Confirm clicked with input and function: ' + this.inputForm.get('userInput').value);
       this.notification.confirmFunction(this.inputForm.get('userInput').value);
     } else if (this.notification.confirmFunction) {
-      alert('Confirm clicked with function in console log');
+      console.info('Confirm clicked with function in console log');
       this.notification.confirmFunction();
     } else {
-      alert('just alert without function');
+      console.info('just alert without function');
     }
     this.closeNotification();
   }

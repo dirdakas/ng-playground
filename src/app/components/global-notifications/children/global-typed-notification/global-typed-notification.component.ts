@@ -1,8 +1,13 @@
-import { Component, Input, OnInit, ViewChild, ElementRef } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnInit,
+  ViewChild,
+  ElementRef
+} from '@angular/core';
 import { AnimationPlayer } from '@angular/animations';
 
-import { GlobalNotificationsService } from '../../../../services/global-notifications.service';
-
+import { GlobalNotificationsService } from '../../../../services/global-notifications/global-notifications.service';
 import { IGlobalNotification } from '../../../../interfaces/global-notification';
 import { IAnimationStates } from 'src/app/interfaces/animation-states';
 
@@ -20,9 +25,11 @@ export class GlobalTypedNotificationComponent implements OnInit {
     remove: null
   };
 
-  constructor(private globalNotificationsService: GlobalNotificationsService) {}
+  constructor(
+    private globalNotificationsService: GlobalNotificationsService
+  ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.createAnimations();
     this.playAnimation('create');
   }

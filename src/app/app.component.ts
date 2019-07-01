@@ -1,9 +1,22 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  OnDestroy
+} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { trigger, transition, query, style, animate, group } from '@angular/animations';
-import { GlobalNotificationsService } from './services/global-notifications.service';
+import {
+  trigger,
+  transition,
+  query,
+  style,
+  animate,
+  group
+} from '@angular/animations';
+
 import { Subscription } from 'rxjs';
 import { tap } from 'rxjs/operators';
+
+import { GlobalNotificationsService } from './services/global-notifications/global-notifications.service';
 import { IGlobalNotification } from './interfaces/global-notification';
 
 @Component({
@@ -38,7 +51,7 @@ export class AppComponent implements OnInit, OnDestroy {
   private globalNotificationsSub: Subscription;
   constructor(private globalNotificationsService: GlobalNotificationsService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.globalNotificationsSub = this.globalNotificationsService.notifications$
       .pipe(
         tap((notifications: IGlobalNotification[]) => {
@@ -57,7 +70,7 @@ export class AppComponent implements OnInit, OnDestroy {
     }
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.globalNotificationsSub.unsubscribe();
   }
 }

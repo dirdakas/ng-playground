@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 
-import { GithubService } from '../../../../services/github.service';
+import { GithubService } from './../../../../services/github/github.service';
 
 import { Observable } from 'rxjs';
 import { take, tap, debounceTime } from 'rxjs/operators';
@@ -22,7 +22,7 @@ export class ProfileGithubComponent implements OnInit {
     private fb: FormBuilder
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.usernameForm = this.fb.group({
       username: 'dirdakas'
     });

@@ -2,19 +2,20 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
-import { IGitHubUser, IGitHubReposResponse } from '../interfaces/github';
+import { IGitHubUser, IGitHubReposResponse } from '../../interfaces/github';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GithubService {
+  public static BRAD_USER_NAME: string = 'bradtraversy';
   private username: string;
   private client_id = 'd9308aacf8b204d361fd';
   private client_secret = '62551cc02cee983fff0bac41baf170eb5a312c1c';
 
   constructor(private _http: HttpClient) {
     console.log('Github Service Ready...');
-    this.username = 'bradtraversy';
+    this.username = GithubService.BRAD_USER_NAME;
   }
 
   getUser(): Observable<IGitHubUser> {
@@ -40,5 +41,9 @@ export class GithubService {
 
   updateUser(username: string) {
     this.username = username;
+  }
+
+  getUserName(): string {
+    return this.username;
   }
 }

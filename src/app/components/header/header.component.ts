@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { UserService, GUEST_USER } from '../../services/user.service';
-
+import { UserService, GUEST_USER } from 'src/app/services/user-service/user.service';
 import { IUser } from '../../interfaces/user';
 
 import { Observable } from 'rxjs';
@@ -17,7 +16,7 @@ export class HeaderComponent implements OnInit {
 
   constructor(private userService: UserService) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.isLoggedIn$ = this.userService.user$
       .pipe(
         map((user: IUser) => user !== GUEST_USER)

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { UserService } from '../../services/user.service';
+import { UserService } from 'src/app/services/user-service/user.service';
 
 import { IUser } from '../../interfaces/user';
 

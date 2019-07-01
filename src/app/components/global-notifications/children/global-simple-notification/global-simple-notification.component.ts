@@ -1,9 +1,7 @@
 import { Component, Input } from '@angular/core';
 
-import { GlobalNotificationsService } from '../../../../services/global-notifications.service';
-
+import { GlobalNotificationsService } from '../../../../services/global-notifications/global-notifications.service';
 import { notificationStateTrigger } from '../../notification-animations';
-
 import { IGlobalNotification } from '../../../../interfaces/global-notification';
 
 @Component({
@@ -17,7 +15,9 @@ export class GlobalSimpleNotificationComponent {
 
   isVisible: boolean;
 
-  constructor(private globalNotificationsService: GlobalNotificationsService) {
+  constructor(
+    private globalNotificationsService: GlobalNotificationsService
+  ) {
     this.isVisible = true;
   }
 

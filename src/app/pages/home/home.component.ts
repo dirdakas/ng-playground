@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { UserService } from '../../services/user.service';
+import { UserService } from 'src/app/services/user-service/user.service';
 
 // import { routeFadeStateTrigger } from '../../shared/route-animations';
 

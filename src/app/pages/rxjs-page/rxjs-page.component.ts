@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PublicHttpDataService } from '../../services/public-http-data.service';
+import { PublicHttpDataService } from '../../services/public-http-data/public-http-data.service';
 
 import { switchMap, take } from 'rxjs/operators';
 import { Observable } from 'rxjs';

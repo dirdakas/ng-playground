@@ -25,7 +25,7 @@ describe('DynamicComponentCreationService', () => {
     componentFactoryResolver = TestBed.get(ComponentFactoryResolver);
   });
 
-  it('should be created', () => {
+  it('should create service', () => {
     expect(dynamicComponentCreationService)
       .toBeTruthy();
   });

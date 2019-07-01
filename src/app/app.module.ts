@@ -19,7 +19,7 @@ import { HeaderComponent } from './components/header/header.component';
 
 import { ProfileGithubComponent } from './pages/rxjs-page/children/profile-github/profile-github.component';
 import { LoginComponent } from './pages/login/login.component';
-import { GlobalNotificationsService } from './services/global-notifications.service';
+import { GlobalNotificationsService } from './services/global-notifications/global-notifications.service';
 
 import { AppErrorHandler } from './services/app-error.handler';
 

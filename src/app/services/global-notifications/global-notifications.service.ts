@@ -6,10 +6,10 @@ import {
   AnimationFactory
 } from '@angular/animations';
 
-import { IGlobalNotification } from '../interfaces/global-notification';
-import { INotificationColors } from '../interfaces/notification-colors';
+import { IGlobalNotification } from '../../interfaces/global-notification';
+import { INotificationColors } from '../../interfaces/notification-colors';
 
-import { NotificationTypeEnum } from '../shared/notificationType.enum';
+import { NotificationTypeEnum } from '../../shared/notificationType.enum';
 
 import { Observable, BehaviorSubject } from 'rxjs';
 

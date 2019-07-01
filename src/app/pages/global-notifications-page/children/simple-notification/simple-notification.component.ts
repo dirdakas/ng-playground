@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { GlobalNotificationsService } from '../../../../services/global-notifications.service';
+
+import { GlobalNotificationsService } from '../../../../services/global-notifications/global-notifications.service';
 
 @Component({
   selector: 'app-simple-notification',
@@ -7,7 +8,9 @@ import { GlobalNotificationsService } from '../../../../services/global-notifica
   styleUrls: ['./simple-notification.component.scss']
 })
 export class SimpleNotificationComponent {
-  constructor(private globalNotificationsService: GlobalNotificationsService) { }
+  constructor(
+    private globalNotificationsService: GlobalNotificationsService
+  ) { }
 
   showNotification(): void {
     this.globalNotificationsService.addSimpleNotification('Notification!!!!');

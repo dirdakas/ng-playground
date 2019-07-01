@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { GlobalNotificationsService } from '../../services/global-notifications.service';
-
+import { GlobalNotificationsService } from '../../services/global-notifications/global-notifications.service';
 import { IGlobalNotification } from '../../interfaces/global-notification';
 
 import { Observable } from 'rxjs';
@@ -14,9 +13,11 @@ import { Observable } from 'rxjs';
 export class GlobalNotificationsComponent implements OnInit {
   notifications$: Observable<IGlobalNotification[]>;
 
-  constructor(private globalNotificationsService: GlobalNotificationsService) {}
+  constructor(
+    private globalNotificationsService: GlobalNotificationsService
+  ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.notifications$ = this.globalNotificationsService.notifications$
       .pipe();
   }
