@@ -13,7 +13,7 @@ import { NotificationTypeEnum } from '../../shared/notificationType.enum';
 
 import { Observable, BehaviorSubject } from 'rxjs';
 
-const EMPTY_NOTIFICATIONS: IGlobalNotification[] = [];
+export const EMPTY_NOTIFICATIONS: IGlobalNotification[] = [];
 
 @Injectable({
   providedIn: 'root'
@@ -46,13 +46,13 @@ export class GlobalNotificationsService {
     this.addNotification(notification);
   }
 
-  removeNotification(id: number): void {
+  removeNotificationById(id: number): void {
     let newNotificationList = this.notificationsSubject.getValue();
     newNotificationList = newNotificationList
       .filter((notification: IGlobalNotification) => {
         return notification.id !== id;
       });
-    this.notificationsSubject.next(newNotificationList);
+    this.updateNotificationList(newNotificationList);
   }
 
   getCreationAnimation(notification: IGlobalNotification): AnimationFactory {
@@ -111,7 +111,26 @@ export class GlobalNotificationsService {
     };
 
     newNotificationList.push(newMessage);
-    this.notificationsSubject.next(newNotificationList);
+    this.updateNotificationList(newNotificationList);
+  }
+
+  getNotificationById(id: number): IGlobalNotification | null {
+    const currentNotifications: IGlobalNotification[] = this.notificationsSubject.getValue();
+    if (currentNotifications.length > 0) {
+      const notification: IGlobalNotification = currentNotifications.find((el: IGlobalNotification) => {
+        return el.id === id;
+      });
+
+      if (notification) {
+        return notification;
+      }
+    }
+
+    return null;
+  }
+
+  updateNotificationList(newList: IGlobalNotification[]): void {
+    this.notificationsSubject.next(newList);
   }
 
   private getLastNotification(): IGlobalNotification {
@@ -119,6 +138,7 @@ export class GlobalNotificationsService {
       .slice(-1)[0];
   }
 
+  // @TODO: refactor style variables
   private getNotificationColors(notification: IGlobalNotification): INotificationColors {
     let result: INotificationColors = {
       background: '#ffeded', /* $fair-pink */

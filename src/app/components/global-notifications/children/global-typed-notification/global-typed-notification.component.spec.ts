@@ -41,7 +41,7 @@ describe('GlobalTypedNotification Component', () => {
         {
           provide: GlobalNotificationsService,
           useValue: jasmine.createSpyObj('GlobalNotificationsService', [
-            'removeNotification',
+            'removeNotificationById',
             'getCreationAnimation',
             'getRemovalAnimation'
           ]),
@@ -103,7 +103,7 @@ describe('GlobalTypedNotification Component', () => {
 
   it('should close notification and play "remove" animation', fakeAsync(() => {
     fixture.detectChanges();
-    globalNotificationsService.removeNotification.and
+    globalNotificationsService.removeNotificationById.and
       .callThrough();
 
     component.closeNotification(MOCK_NOTIFICATION.id);
@@ -112,9 +112,9 @@ describe('GlobalTypedNotification Component', () => {
 
     expect(isRemoveAnimationPlayed)
       .toBeTruthy();
-    expect(globalNotificationsService.removeNotification)
+    expect(globalNotificationsService.removeNotificationById)
       .toHaveBeenCalled();
-    expect(globalNotificationsService.removeNotification)
+    expect(globalNotificationsService.removeNotificationById)
       .toHaveBeenCalledWith(MOCK_NOTIFICATION.id);
   }));
 });

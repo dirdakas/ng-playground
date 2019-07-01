@@ -56,7 +56,7 @@ describe('GlobalNotification Component', () => {
         {
           provide: GlobalNotificationsService,
           useValue: jasmine.createSpyObj('GlobalNotificationsService', [
-            'removeNotification',
+            'removeNotificationById',
             'getCreationAnimation',
             'getRemovalAnimation'
           ]),
@@ -180,13 +180,13 @@ describe('GlobalNotification Component', () => {
     fakeAsync(() => {
       component.notification.closeAfter = MOCK_AUTO_CLOSE_AFTER;
 
-      globalNotificationsService.removeNotification.and.callThrough();
+      globalNotificationsService.removeNotificationById.and.callThrough();
 
       fixture.detectChanges();
 
       tick(MOCK_AUTO_CLOSE_AFTER * 2);
 
-      expect(globalNotificationsService.removeNotification)
+      expect(globalNotificationsService.removeNotificationById)
         .toHaveBeenCalled();
       expect(isRemoveAnimationPlayed)
         .toBeTruthy();
@@ -200,14 +200,14 @@ describe('GlobalNotification Component', () => {
   });
 
   it('should close notification on click', fakeAsync(() => {
-    globalNotificationsService.removeNotification.and.callThrough();
+    globalNotificationsService.removeNotificationById.and.callThrough();
     fixture.detectChanges();
 
     component.closeNotification();
 
     tick(MOCK_AUTO_CLOSE_AFTER * 2);
 
-    expect(globalNotificationsService.removeNotification)
+    expect(globalNotificationsService.removeNotificationById)
       .toHaveBeenCalled();
     expect(isRemoveAnimationPlayed)
       .toBeTruthy();
@@ -215,14 +215,14 @@ describe('GlobalNotification Component', () => {
 
   describe('should cancel on click', () => {
     it('without function', fakeAsync(() => {
-      globalNotificationsService.removeNotification.and.callThrough();
+      globalNotificationsService.removeNotificationById.and.callThrough();
       fixture.detectChanges();
 
       component.cancel();
 
       tick(MOCK_AUTO_CLOSE_AFTER * 2);
 
-      expect(globalNotificationsService.removeNotification)
+      expect(globalNotificationsService.removeNotificationById)
         .toHaveBeenCalled();
       expect(isRemoveAnimationPlayed)
         .toBeTruthy();
@@ -232,7 +232,7 @@ describe('GlobalNotification Component', () => {
 
     it('with function', fakeAsync(() => {
       component.notification.cancelFunction = () => {};
-      globalNotificationsService.removeNotification.and.callThrough();
+      globalNotificationsService.removeNotificationById.and.callThrough();
       spyOn(component.notification, 'cancelFunction').and
         .callThrough();
       fixture.detectChanges();
@@ -241,7 +241,7 @@ describe('GlobalNotification Component', () => {
 
       tick(MOCK_AUTO_CLOSE_AFTER * 2);
 
-      expect(globalNotificationsService.removeNotification)
+      expect(globalNotificationsService.removeNotificationById)
         .toHaveBeenCalled();
       expect(isRemoveAnimationPlayed)
         .toBeTruthy();
@@ -253,14 +253,14 @@ describe('GlobalNotification Component', () => {
   describe('should confirm on click', () => {
     it('no input, no confirm function', fakeAsync(() => {
       component.notification.hasInput = undefined;
-      globalNotificationsService.removeNotification.and.callThrough();
+      globalNotificationsService.removeNotificationById.and.callThrough();
       fixture.detectChanges();
 
       component.confirm();
 
       tick(MOCK_AUTO_CLOSE_AFTER * 2);
 
-      expect(globalNotificationsService.removeNotification)
+      expect(globalNotificationsService.removeNotificationById)
         .toHaveBeenCalled();
       expect(isRemoveAnimationPlayed)
         .toBeTruthy();
@@ -272,7 +272,7 @@ describe('GlobalNotification Component', () => {
 
     it('no input, with confirm function', fakeAsync(() => {
       component.notification.confirmFunction = () => {};
-      globalNotificationsService.removeNotification.and.callThrough();
+      globalNotificationsService.removeNotificationById.and.callThrough();
       spyOn(component.notification, 'confirmFunction').and
         .callThrough();
       fixture.detectChanges();
@@ -281,7 +281,7 @@ describe('GlobalNotification Component', () => {
 
       tick(MOCK_AUTO_CLOSE_AFTER * 2);
 
-      expect(globalNotificationsService.removeNotification)
+      expect(globalNotificationsService.removeNotificationById)
         .toHaveBeenCalled();
       expect(isRemoveAnimationPlayed)
         .toBeTruthy();
@@ -293,7 +293,7 @@ describe('GlobalNotification Component', () => {
       const MOCK_INPUT: string = 'MOCK_USER_INPUT';
       component.notification.confirmFunction = () => {};
       component.notification.hasInput = true;
-      globalNotificationsService.removeNotification.and.callThrough();
+      globalNotificationsService.removeNotificationById.and.callThrough();
       spyOn(component.notification, 'confirmFunction').and
         .callThrough();
       fixture.detectChanges();
@@ -304,7 +304,7 @@ describe('GlobalNotification Component', () => {
 
       tick(MOCK_AUTO_CLOSE_AFTER * 2);
 
-      expect(globalNotificationsService.removeNotification)
+      expect(globalNotificationsService.removeNotificationById)
         .toHaveBeenCalled();
       expect(isRemoveAnimationPlayed)
         .toBeTruthy();

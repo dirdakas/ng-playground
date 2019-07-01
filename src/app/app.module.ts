@@ -9,26 +9,24 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { GlobalNotificationsPageModule } from './pages/global-notifications-page/global-notifications-page.module';
 import { GlobalNotificationsModule } from './components/global-notifications/global-notifications.module';
+import { HeaderModule } from './components/header/header.module';
 import { AnimationsModule } from './pages/animations/animations.module';
 
 import { HomeComponent } from './pages/home/home.component';
 import { RxjsPageComponent } from './pages/rxjs-page/rxjs-page.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 
-import { HeaderComponent } from './components/header/header.component';
-
 import { ProfileGithubComponent } from './pages/rxjs-page/children/profile-github/profile-github.component';
 import { LoginComponent } from './pages/login/login.component';
 import { GlobalNotificationsService } from './services/global-notifications/global-notifications.service';
 
-import { AppErrorHandler } from './services/app-error.handler';
+import { AppErrorHandler } from './services/app-error/app-error.handler';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     RxjsPageComponent,
-    HeaderComponent,
     ProfileGithubComponent,
     LoginComponent,
     NotFoundComponent
@@ -43,6 +41,7 @@ import { AppErrorHandler } from './services/app-error.handler';
     AnimationsModule,
     GlobalNotificationsPageModule,
     GlobalNotificationsModule,
+    HeaderModule,
   ],
   providers: [
     GlobalNotificationsService,

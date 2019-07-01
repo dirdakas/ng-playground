@@ -35,7 +35,7 @@ describe('GlobalSimpleNotification Component', () => {
         {
           provide: GlobalNotificationsService,
           useValue: jasmine.createSpyObj('GlobalNotificationsService', [
-            'removeNotification',
+            'removeNotificationById',
           ]),
         },
       ],
@@ -61,16 +61,16 @@ describe('GlobalSimpleNotification Component', () => {
   });
 
   it('should close notification', fakeAsync(() => {
-    globalNotificationsService.removeNotification.and
+    globalNotificationsService.removeNotificationById.and
       .callThrough();
 
     component.closeNotification(component.notification.id);
 
     tick(MOCK_AUTO_CLOSE_AFTER * 2);
 
-    expect(globalNotificationsService.removeNotification)
+    expect(globalNotificationsService.removeNotificationById)
       .toHaveBeenCalled();
-    expect(globalNotificationsService.removeNotification)
+    expect(globalNotificationsService.removeNotificationById)
       .toHaveBeenCalledWith(MOCK_NOTIFICATION.id);
   }));
 });

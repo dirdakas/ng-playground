@@ -24,7 +24,7 @@ export class GlobalSimpleNotificationComponent {
   closeNotification(id: number): void {
     this.isVisible = false;
     setTimeout(() => {
-      this.globalNotificationsService.removeNotification(id);
+      this.globalNotificationsService.removeNotificationById(id);
     }, 500);
   }
 }

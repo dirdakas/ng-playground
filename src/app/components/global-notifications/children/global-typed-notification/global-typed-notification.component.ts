@@ -37,7 +37,7 @@ export class GlobalTypedNotificationComponent implements OnInit {
   closeNotification(id: number): void {
     this.playAnimation('remove');
     setTimeout(() => {
-      this.globalNotificationsService.removeNotification(id);
+      this.globalNotificationsService.removeNotificationById(id);
     }, 500);
   }
 
