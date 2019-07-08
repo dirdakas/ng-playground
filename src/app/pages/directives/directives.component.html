@@ -1,0 +1,28 @@
+<div class="directives-wrapper">
+  <div *ngFor="let example of examplesList; let index = index;" class="example-item-wrapper">
+    <button class="collapsible" (click)="toggleExample(directivesExample, index)">
+      <b>Toggle to show/hide: </b>
+      <i>{{ example.description }}</i>
+    </button>
+    <div class="content" #directivesExample style="display: none;">
+      <p *ngIf="0 === index" appSimpleHighlight>Some text to highlight</p>
+      <p *ngIf="1 === index" appHoverHighlightRenderer>Some text to highlight</p>
+      <p *ngIf="2 === index" appHoverHighlightBinding>Some text to highlight</p>
+      <p *ngIf="3 === index"
+         appHoverHighlightBindingProperties
+         [defaultColor]="'lime'"
+         [highlightColor]="'pink'">
+        Some text to highlight
+      </p>
+      <div *ngIf="4 === index">
+        <div *appSimpleStructural="!isOnlyOdd">
+          <li
+            *ngFor="let even of evenNumbers"
+            [ngStyle]="{backgroundColor: even % 2 !== 0 ? 'yellow' : 'transparent'}">
+            {{ even }}
+          </li>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -40,7 +40,7 @@ export class GlobalNotificationsPageComponent {
     private dynamicComponentCreationService: DynamicComponentCreationService,
   ) {}
 
-  toggleExample(element: HTMLElement, index: number) {
+  toggleExample(element: HTMLElement, index: number): void {
     if (element.style.display === 'none') {
       element.style.display = 'block';
       this.examplesList[index].isActive = true;

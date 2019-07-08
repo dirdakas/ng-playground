@@ -7,12 +7,14 @@ import { RxjsPageComponent } from './pages/rxjs-page/rxjs-page.component';
 import { LoginComponent } from './pages/login/login.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { GlobalNotificationsPageComponent } from './pages/global-notifications-page/global-notifications-page.component';
+import { DirectivesComponent } from './pages/directives/directives.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent, data: { animations: { page: 'homePage' } } },
   { path: 'animations', component: AnimationsComponent, data: { animations: { page: 'animationsPage' } } },
   { path: 'rxjs-page', component: RxjsPageComponent },
+  { path: 'directives', component: DirectivesComponent },
   { path: 'global-notifications-page', component: GlobalNotificationsPageComponent },
   { path: 'login', component: LoginComponent },
   { path: '404', component: NotFoundComponent }

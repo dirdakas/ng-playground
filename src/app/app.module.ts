@@ -11,6 +11,7 @@ import { GlobalNotificationsPageModule } from './pages/global-notifications-page
 import { GlobalNotificationsModule } from './components/global-notifications/global-notifications.module';
 import { HeaderModule } from './components/header/header.module';
 import { AnimationsModule } from './pages/animations/animations.module';
+import { DirectivesModule } from './pages/directives/directives.module';
 
 import { HomeComponent } from './pages/home/home.component';
 import { RxjsPageComponent } from './pages/rxjs-page/rxjs-page.component';
@@ -42,6 +43,7 @@ import { AppErrorHandler } from './services/app-error/app-error.handler';
     GlobalNotificationsPageModule,
     GlobalNotificationsModule,
     HeaderModule,
+    DirectivesModule,
   ],
   providers: [
     GlobalNotificationsService,
