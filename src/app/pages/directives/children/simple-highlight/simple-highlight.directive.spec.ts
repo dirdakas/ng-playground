@@ -1,8 +1,12 @@
-import { ElementRef, Renderer2, NO_ERRORS_SCHEMA } from '@angular/core';
+import { ElementRef, Renderer2 } from '@angular/core';
 import { async, TestBed, ComponentFixture } from '@angular/core/testing';
 
 import { DirectivesComponent } from './../../directives.component';
 import { SimpleHighlightDirective } from './simple-highlight.directive';
+import {
+  HoverHighlightBindingPropertiesDirective
+} from './../hover-highlight-binding-properties/hover-highlight-binding-properties.directive';
+import { SimpleStructuralDirective } from './../simple-structural/simple-structural.directive';
 
 describe('SimpleHighlightDirective', () => {
   let elementRef: jasmine.SpyObj<ElementRef>;
@@ -16,8 +20,9 @@ describe('SimpleHighlightDirective', () => {
       declarations: [
         DirectivesComponent,
         SimpleHighlightDirective,
-      ],
-      schemas: [ NO_ERRORS_SCHEMA ]
+        HoverHighlightBindingPropertiesDirective,
+        SimpleStructuralDirective,
+      ]
     })
     .compileComponents();
 

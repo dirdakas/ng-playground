@@ -1,7 +1,7 @@
 import { async, TestBed, ComponentFixture } from '@angular/core/testing';
-import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 import { DirectivesComponent } from '../../directives.component';
+import { SimpleStructuralDirective } from './../simple-structural/simple-structural.directive';
 import { HoverHighlightBindingPropertiesDirective } from './hover-highlight-binding-properties.directive';
 
 describe('HoverHighlightBindingPropertiesDirective', () => {
@@ -13,8 +13,8 @@ describe('HoverHighlightBindingPropertiesDirective', () => {
       declarations: [
         DirectivesComponent,
         HoverHighlightBindingPropertiesDirective,
-      ],
-      schemas: [ NO_ERRORS_SCHEMA ]
+        SimpleStructuralDirective,
+      ]
     })
     .compileComponents();
 

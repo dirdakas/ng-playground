@@ -1,8 +1,4 @@
-import {
-  NO_ERRORS_SCHEMA,
-  TemplateRef,
-  ViewContainerRef
-} from '@angular/core';
+import { TemplateRef, ViewContainerRef } from '@angular/core';
 import {
   async,
   TestBed,
@@ -10,6 +6,9 @@ import {
 } from '@angular/core/testing';
 
 import { DirectivesComponent } from '../../directives.component';
+import {
+  HoverHighlightBindingPropertiesDirective
+} from './../hover-highlight-binding-properties/hover-highlight-binding-properties.directive';
 import { SimpleStructuralDirective } from './simple-structural.directive';
 
 describe('SimpleStructuralDirective', () => {
@@ -23,9 +22,9 @@ describe('SimpleStructuralDirective', () => {
     TestBed.configureTestingModule({
       declarations: [
         DirectivesComponent,
+        HoverHighlightBindingPropertiesDirective,
         SimpleStructuralDirective,
-      ],
-      schemas: [ NO_ERRORS_SCHEMA ]
+      ]
     })
     .compileComponents();
 
