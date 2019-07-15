@@ -23,6 +23,30 @@
           </li>
         </div>
       </div>
+      <div *ngIf="5 === index">
+        <div [ngSwitch]="buttonColorPressed">
+          <p *ngSwitchCase="'red'">Red button is active</p>
+          <p *ngSwitchCase="'blue'">Blue button is active</p>
+          <p *ngSwitchCase="'green'">Green button is active</p>
+          <p *ngSwitchDefault>Default -> nothing was pressed</p>
+        </div>
+        <button class="red"
+                (click)="buttonColorPressed = 'red'">
+          Red
+        </button>
+        <button class="blue"
+                (click)="buttonColorPressed = 'blue'">
+          Blue
+        </button>
+        <button class="green"
+                (click)="buttonColorPressed = 'green'">
+          Green
+        </button>
+        <button class="default"
+                (click)="buttonColorPressed = null">
+          Default
+        </button>
+      </div>
     </div>
   </div>
 </div>

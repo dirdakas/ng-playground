@@ -30,6 +30,10 @@ export class DirectivesComponent {
     {
       component: null,
       description: 'Simple structural directive example.'
+    },
+    {
+      component: null,
+      description: 'Simple `ngSwitch` example.'
     }
   ];
 

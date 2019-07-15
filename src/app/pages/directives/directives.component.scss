@@ -1,3 +1,5 @@
+@import '../../shared/variables.scss';
+
 .directives-wrapper {
   .collapsible {
     cursor: pointer;
@@ -18,5 +20,21 @@
   .content {
     background-color: #e4b9f1;
     padding: 15px;
+
+    .red {
+      background-color: $red;
+    }
+
+    .blue {
+      background-color: $info-dark;
+    }
+
+    .green {
+      background-color: $success-dark;
+    }
+
+    .default {
+      background-color: $error-light;
+    }
   }
 }
