@@ -10,22 +10,24 @@ import {
   stagger
 } from '@angular/animations';
 
+import { ColorEnum } from '../../enums/color.enum';
+
 const clickedStateTrigger = trigger('clickedState', [
   state('default', style({
-    backgroundColor: 'orange',
+    backgroundColor: ColorEnum.orange,
     width: '150px',
     height: '150px'
   })),
   state('clicked', style({
-    backgroundColor: 'blue',
+    backgroundColor: ColorEnum.blue,
     width: '300px',
     height: '50px'
   })),
   state('mousedown', style({
-    backgroundColor: 'lime',
+    backgroundColor: ColorEnum.lime,
     width: '150px',
     height: '150px',
-    border: '2px solid blue'
+    border: `2px solid ${ ColorEnum.blue }`
   })),
   transition('default => clicked', animate(
     '0.3s 0.5s ease-in'
@@ -40,25 +42,25 @@ const clickedStateTrigger = trigger('clickedState', [
 
 const setNumberStateTrigger = trigger('numberState', [
   state('notSelected', style({
-    color: 'grey',
+    color: ColorEnum.grey,
     paddingLeft: '5px',
     paddingRight: '5px',
-    border: '1px solid black'
+    border: `1px solid ${ ColorEnum.black }`
   })),
   state('selected', style({
-    color: 'red',
-    backgroundColor: 'yellow',
+    color: ColorEnum.red,
+    backgroundColor: ColorEnum.yellow,
     paddingLeft: '5px',
     paddingRight: '5px',
-    border: '1px solid lime'
+    border: `1px solid ${ ColorEnum.lime }`
   })),
   transition('notSelected => selected', [
     style({
-      border: '2px solid black',
+      border: `2px solid ${ ColorEnum.black }`,
       padding: '4px'
     }),
     animate(400, style({
-      backgroundColor: 'red',
+      backgroundColor: ColorEnum.red,
       padding: '6px'
     })),
     animate(700)
@@ -69,7 +71,7 @@ const setBubbleStateTrigger = trigger('bubbleState', [
   state('default', style({
     height: '50px',
     width: '50px',
-    backgroundColor: 'lime',
+    backgroundColor: ColorEnum.lime,
     borderRadius: '50%',
     margin: '0 5px',
     float: 'left',
@@ -78,21 +80,21 @@ const setBubbleStateTrigger = trigger('bubbleState', [
   state('selected', style({
     height: '50px',
     width: '50px',
-    backgroundColor: 'yellow',
+    backgroundColor: ColorEnum.yellow,
     borderRadius: '50%',
-    border: '2px solid red',
+    border: `2px solid ${ ColorEnum.red }`,
     margin: '0 5px',
     float: 'left',
     display: 'inline-block'
   })),
   transition('default => selected', [
     style({
-      border: '2px solid black',
+      border: `2px solid ${ ColorEnum.black }`,
       transform: 'scale(1.0)'
     }),
     animate(400, style({
-      backgroundColor: 'red',
-      border: '4px solid blue',
+      backgroundColor: ColorEnum.red,
+      border: `4px solid ${ ColorEnum.blue }`,
       transform: 'scale(1.2)'
     })),
     animate(700)
@@ -128,7 +130,7 @@ const showListStateTrigger = trigger('showList', [
   transition(':enter', [
     style({
       opacity: 0,
-      backgroundColor: 'white'
+      backgroundColor: ColorEnum.white
     }),
     group([
       animate(1000, style({
@@ -136,21 +138,21 @@ const showListStateTrigger = trigger('showList', [
       })),
       animate(5000, keyframes([
         style({
-          backgroundColor: 'white',
+          backgroundColor: ColorEnum.white,
           offset: 0
         }),
         style({
-          backgroundColor: 'lime',
+          backgroundColor: ColorEnum.lime,
           offset: 0.8
         }),
         style({
-          backgroundColor: 'blue',
+          backgroundColor: ColorEnum.blue,
           offset: 1
         }),
       ]))
     ]),
     animate(300, style({
-      backgroundColor: 'lightblue',
+      backgroundColor: ColorEnum.lightBlue,
       opacity: 1
     }))
   ]),
@@ -240,7 +242,7 @@ const panelStateTrigger = trigger('panelState', [
         opacity: 0.3
       }),
       animate(500, style({
-        color: 'red',
+        color: ColorEnum.red,
         opacity: 1
       })),
       animate(200)
@@ -253,30 +255,30 @@ const staggerListAnimationTrigger = trigger('staggerList', [
     query(':enter', [
       style({
         opacity: 0,
-        backgroundColor: 'white',
+        backgroundColor: ColorEnum.white,
         transform: 'translateX(100px)'
       }),
       stagger(1000, [
         animate(2000, keyframes([
           style({
-            backgroundColor: 'pink',
+            backgroundColor: ColorEnum.pink,
             opacity: 0.4,
             transform: 'translateX(20px)'
           }),
           style({
-            backgroundColor: 'lime',
+            backgroundColor: ColorEnum.lime,
             opacity: 0.8,
             transform: 'translateX(10px)'
           }),
           style({
-            backgroundColor: 'blue',
+            backgroundColor: ColorEnum.blue,
             opacity: 1,
-            transform: 'translateX(0)'
+            transform: 'translateX(0px)'
           }),
         ]))
       ]),
       animate(300, style({
-        backgroundColor: 'lightblue',
+        backgroundColor: ColorEnum.lightBlue,
         opacity: 1
       }))
     ], { optional: true })

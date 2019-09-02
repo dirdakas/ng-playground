@@ -14,5 +14,11 @@ export enum ColorEnum {
   red = '#f44336',
   orange = '#ffa240',
   black = '#0d0d0d',
-  mediumGray = '#8b8b8b'
+  mediumGray = '#8b8b8b',
+  white = '#ffffff',
+  blue = '#0000FF',
+  lime = '#00FF00',
+  grey = '#808080',
+  yellow = '#FFFF00',
+  pink = '#FFC0CB'
 }

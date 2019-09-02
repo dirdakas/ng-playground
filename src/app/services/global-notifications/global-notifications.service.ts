@@ -66,10 +66,10 @@ export class GlobalNotificationsService {
     return this.animationBuilder.build([
       style({
         opacity: 0,
-        backgroundColor: '#ffffff'
+        backgroundColor: ColorEnum.white
       }),
       animate(400, style({
-        backgroundColor: 'lightblue',
+        backgroundColor: ColorEnum.lightBlue,
         opacity: 1,
         padding: '15px 8px'
       })),
@@ -86,7 +86,7 @@ export class GlobalNotificationsService {
     return this.animationBuilder.build([
       style({
         opacity: 1,
-        transform: 'translateY(0)'
+        transform: 'translateY(0px)'
       }),
       animate(500, style({
         opacity: 0,
