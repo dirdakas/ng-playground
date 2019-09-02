@@ -32,6 +32,7 @@ export class GlobalTypedNotificationComponent implements OnInit {
   ngOnInit(): void {
     this.createAnimations();
     this.playAnimation('create');
+    this.checkIfAutoClosing();
   }
 
   closeNotification(id: number): void {
@@ -39,6 +40,14 @@ export class GlobalTypedNotificationComponent implements OnInit {
     setTimeout(() => {
       this.globalNotificationsService.removeNotificationById(id);
     }, 500);
+  }
+
+  private checkIfAutoClosing(): void {
+    if (this.notification.closeAfter) {
+      setTimeout(() => {
+        this.closeNotification(this.notification.id);
+      }, this.notification.closeAfter);
+    }
   }
 
   private createAnimations(): void {

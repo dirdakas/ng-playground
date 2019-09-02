@@ -2,13 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 
+import { throwError } from 'rxjs';
+import {
+  tap,
+  take,
+  map,
+  catchError
+} from 'rxjs/operators';
+
 import { UserService } from 'src/app/services/user-service/user.service';
-
 import { IUser } from '../../interfaces/user';
-
-import { tap, take, map, catchError } from 'rxjs/operators';
-import { EMPTY } from 'rxjs';
-import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -51,11 +54,10 @@ export class LoginComponent implements OnInit {
               this.userNotFound = true;
             }
           }),
-          catchError((_err: HttpErrorResponse) => {
-            /* @TODO: add http error notifications */
-            console.log('err', _err);
+          catchError(err => {
+            this.userNotFound = true;
 
-            return EMPTY;
+            return throwError(err);
           })
         )
         .subscribe();

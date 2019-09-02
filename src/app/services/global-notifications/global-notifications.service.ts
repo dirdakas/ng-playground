@@ -6,12 +6,12 @@ import {
   AnimationFactory
 } from '@angular/animations';
 
+import { Observable, BehaviorSubject } from 'rxjs';
+
 import { IGlobalNotification } from '../../interfaces/global-notification';
 import { INotificationColors } from '../../interfaces/notification-colors';
-
-import { NotificationTypeEnum } from '../../shared/notificationType.enum';
-
-import { Observable, BehaviorSubject } from 'rxjs';
+import { NotificationTypeEnum } from '../../enums/notificationType.enum';
+import { ColorEnum } from '../../enums/color.enum';
 
 export const EMPTY_NOTIFICATIONS: IGlobalNotification[] = [];
 
@@ -35,13 +35,18 @@ export class GlobalNotificationsService {
     this.addNotification(notification);
   }
 
-  addTypedNotification(message: string, type: NotificationTypeEnum): void {
+  addTypedNotification(
+    message: string,
+    type: NotificationTypeEnum,
+    closeAfter: number = null
+  ): void {
     const notification: IGlobalNotification = {
       id: 0,
       message: message,
       isUltimante: false,
       isClosable: true,
-      type: type
+      type: type,
+      closeAfter: closeAfter
     };
     this.addNotification(notification);
   }
@@ -138,35 +143,35 @@ export class GlobalNotificationsService {
       .slice(-1)[0];
   }
 
-  // @TODO: refactor style variables
   private getNotificationColors(notification: IGlobalNotification): INotificationColors {
     let result: INotificationColors = {
-      background: '#ffeded', /* $fair-pink */
-      color: '#ff6600' /* $blaze-orange */
+      background: ColorEnum.fairPink,
+      color: ColorEnum.blazeOrange
     };
+
     switch (notification.type) {
       case NotificationTypeEnum.error:
         result = {
-          background: '#f5c2ed', /* $error-light */
-          color: '#d9534f' /* $error-dark */
+          background: ColorEnum.errorLight,
+          color: ColorEnum.errorDark
         };
         break;
       case NotificationTypeEnum.warning:
         result = {
-          background: '#f8fdd7', /* $warning-light */
-          color: '#f0ad4e' /* $warning-dark */
+          background: ColorEnum.warningLight,
+          color: ColorEnum.warningDark
         };
         break;
       case NotificationTypeEnum.info:
         result = {
-          background: '#befbff', /* $info-light */
-          color: '#5bc0de' /* $info-dark */
+          background: ColorEnum.infoLight,
+          color: ColorEnum.infoDark
         };
         break;
       case NotificationTypeEnum.success:
         result = {
-          background: '#ddfdd1', /* $success-light */
-          color: '#5cb85c' /* $success-dark */
+          background: ColorEnum.successLight,
+          color: ColorEnum.successDark
         };
         break;
       default:

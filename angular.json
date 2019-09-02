@@ -79,6 +79,12 @@
             "assets": [
               "src/favicon.ico",
               "src/assets"
+            ],
+            "codeCoverageExclude": [
+              "coverage/**/*",
+              "dist/**/*",
+              "node_modules/**/*",
+              "**/*.js"
             ]
           }
         },

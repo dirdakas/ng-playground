@@ -15,8 +15,8 @@ import { AnimationBuilder } from '@angular/animations';
 
 import { GlobalNotificationsService } from '../../../../services/global-notifications/global-notifications.service';
 import { GlobalNotificationComponent } from './global-notification.component';
-import { IGlobalNotification } from 'src/app/interfaces/global-notification';
-import { NotificationTypeEnum } from 'src/app/shared/notificationType.enum';
+import { NotificationTypeEnum } from '../../../../enums/notificationType.enum';
+import { IGlobalNotification } from '../../../../interfaces/global-notification';
 
 describe('GlobalNotification Component', () => {
   let component: GlobalNotificationComponent;
@@ -35,6 +35,24 @@ describe('GlobalNotification Component', () => {
   };
   let isCreateAnimationPlayed: boolean = false;
   let isRemoveAnimationPlayed: boolean = false;
+  const MOCK_CREATE_RESPONSE: any = {
+    create: (el) => {
+      return {
+        play: () => {
+          isCreateAnimationPlayed = true;
+        }
+      };
+    }
+  };
+  const MOCK_REMOVE_RESPONSE: any = {
+    create: (el) => {
+      return {
+        play: () => {
+          isRemoveAnimationPlayed = true;
+        }
+      };
+    }
+  };
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -80,29 +98,14 @@ describe('GlobalNotification Component', () => {
     isCreateAnimationPlayed = false;
     isRemoveAnimationPlayed = false;
 
-    globalNotificationsService.getCreationAnimation.and
-      .returnValue({
-        create: (el) => {
-          return {
-            play: () => {
-              isCreateAnimationPlayed = true;
-            }
-          };
-        }
-      });
+    globalNotificationsService.getCreationAnimation
+      .and
+      .returnValue(MOCK_CREATE_RESPONSE);
+    globalNotificationsService.getRemovalAnimation
+      .and
+      .returnValue(MOCK_REMOVE_RESPONSE);
 
-    globalNotificationsService.getRemovalAnimation.and
-    .returnValue({
-      create: (el) => {
-        return {
-          play: () => {
-            isRemoveAnimationPlayed = true;
-          }
-        };
-      }
-    });
-
-    component.notification = MOCK_NOTIFICATION;
+    component.notification = Object.assign({}, MOCK_NOTIFICATION);
   }));
 
   it('should create', () => {

@@ -7,10 +7,10 @@ import {
   tick
 } from '@angular/core/testing';
 
-import { NotificationTypeEnum } from 'src/app/shared/notificationType.enum';
 import { IGlobalNotification } from 'src/app/interfaces/global-notification';
 import { GlobalSimpleNotificationComponent } from './global-simple-notification.component';
 import { GlobalNotificationsService } from '../../../../services/global-notifications/global-notifications.service';
+import { NotificationTypeEnum } from '../../../../enums/notificationType.enum';
 
 describe('GlobalSimpleNotification Component', () => {
   let component: GlobalSimpleNotificationComponent;
@@ -50,7 +50,7 @@ describe('GlobalSimpleNotification Component', () => {
 
     component = fixture.componentInstance;
 
-    component.notification = MOCK_NOTIFICATION;
+    component.notification = Object.assign({}, MOCK_NOTIFICATION);
 
     fixture.detectChanges();
   }));

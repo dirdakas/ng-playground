@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 import { GlobalNotificationsService } from '../../../../services/global-notifications/global-notifications.service';
-import { NotificationTypeEnum } from '../../../../shared/notificationType.enum';
+import { NotificationTypeEnum } from '../../../../enums/notificationType.enum';
 import { IGlobalNotification } from '../../../../interfaces/global-notification';
 
 @Component({

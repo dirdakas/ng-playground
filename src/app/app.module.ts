@@ -15,13 +15,13 @@ import { DirectivesModule } from './pages/directives/directives.module';
 
 import { HomeComponent } from './pages/home/home.component';
 import { RxjsPageComponent } from './pages/rxjs-page/rxjs-page.component';
-import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 import { ProfileGithubComponent } from './pages/rxjs-page/children/profile-github/profile-github.component';
 import { LoginComponent } from './pages/login/login.component';
 import { GlobalNotificationsService } from './services/global-notifications/global-notifications.service';
 
-import { AppErrorHandler } from './services/app-error/app-error.handler';
+import { GlobalErrorHandler } from './services/global-error-handler/global-error-handler.service';
+import { NotFoundModule } from './pages/not-found/not-found.module';
 
 @NgModule({
   declarations: [
@@ -30,7 +30,6 @@ import { AppErrorHandler } from './services/app-error/app-error.handler';
     RxjsPageComponent,
     ProfileGithubComponent,
     LoginComponent,
-    NotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -44,10 +43,11 @@ import { AppErrorHandler } from './services/app-error/app-error.handler';
     GlobalNotificationsModule,
     HeaderModule,
     DirectivesModule,
+    NotFoundModule,
   ],
   providers: [
     GlobalNotificationsService,
-    { provide: ErrorHandler, useClass: AppErrorHandler },
+    { provide: ErrorHandler, useClass: GlobalErrorHandler },
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   bootstrap: [AppComponent]

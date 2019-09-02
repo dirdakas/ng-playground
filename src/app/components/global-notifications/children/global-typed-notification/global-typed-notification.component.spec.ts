@@ -9,8 +9,8 @@ import {
 
 import { GlobalNotificationsService } from '../../../../services/global-notifications/global-notifications.service';
 import { GlobalTypedNotificationComponent } from './global-typed-notification.component';
-import { IGlobalNotification } from 'src/app/interfaces/global-notification';
-import { NotificationTypeEnum } from 'src/app/shared/notificationType.enum';
+import { NotificationTypeEnum } from '../../../../enums/notificationType.enum';
+import { IGlobalNotification } from '../../../../interfaces/global-notification';
 
 describe('GlobalTypedNotification Component', () => {
   let component: GlobalTypedNotificationComponent;
@@ -28,6 +28,24 @@ describe('GlobalTypedNotification Component', () => {
   };
   let isCreateAnimationPlayed: boolean = false;
   let isRemoveAnimationPlayed: boolean = false;
+  const MOCK_CREATE_ANIMATION_CALLBACK: any = {
+    create: (el) => {
+      return {
+        play: () => {
+          isCreateAnimationPlayed = true;
+        }
+      };
+    }
+  };
+  const MOCK_REMOVE_ANIMATION_CALLBACK: any = {
+    create: (el) => {
+      return {
+        play: () => {
+          isRemoveAnimationPlayed = true;
+        }
+      };
+    }
+  };
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -59,28 +77,12 @@ describe('GlobalTypedNotification Component', () => {
     isRemoveAnimationPlayed = false;
 
     globalNotificationsService.getCreationAnimation.and
-      .returnValue({
-        create: (el) => {
-          return {
-            play: () => {
-              isCreateAnimationPlayed = true;
-            }
-          };
-        }
-      });
+      .returnValue(MOCK_CREATE_ANIMATION_CALLBACK);
 
     globalNotificationsService.getRemovalAnimation.and
-    .returnValue({
-      create: (el) => {
-        return {
-          play: () => {
-            isRemoveAnimationPlayed = true;
-          }
-        };
-      }
-    });
+      .returnValue(MOCK_REMOVE_ANIMATION_CALLBACK);
 
-    component.notification = MOCK_NOTIFICATION;
+    component.notification = Object.assign({}, MOCK_NOTIFICATION);
   }));
 
   it('should create', () => {

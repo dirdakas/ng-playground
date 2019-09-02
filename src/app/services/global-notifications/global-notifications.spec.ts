@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { AnimationBuilder } from '@angular/animations';
 
-import { NotificationTypeEnum } from './../../shared/notificationType.enum';
+import { NotificationTypeEnum } from './../../enums/notificationType.enum';
 import { IGlobalNotification } from './../../interfaces/global-notification';
 import { GlobalNotificationsService } from './global-notifications.service';
 

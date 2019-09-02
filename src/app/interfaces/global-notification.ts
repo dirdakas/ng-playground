@@ -1,5 +1,4 @@
-
-import { NotificationTypeEnum } from '../shared/notificationType.enum';
+import { NotificationTypeEnum } from '../enums/notificationType.enum';
 
 export interface IGlobalNotification {
   id: number;
