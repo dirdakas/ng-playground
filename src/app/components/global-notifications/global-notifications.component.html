@@ -1,8 +1,17 @@
-<div *ngIf="notifications$ | async as notifications"
+<div *ngIf="notifications.length > 0"
      class="global-notifications">
-    <div *ngFor="let notification of notifications">
-        <app-global-simple-notification *ngIf="!notification.isUltimante && !notification.type" [notification]="notification"></app-global-simple-notification>
-        <app-global-typed-notification *ngIf="!notification.isUltimante && notification.type" [notification]="notification"></app-global-typed-notification>
-        <app-global-notification *ngIf="notification.isUltimante" [notification]="notification"></app-global-notification>
-    </div>
+  <div *ngFor="let notification of notifications">
+    <app-global-simple-notification
+      *ngIf="!notification.isUltimante && !notification.type"
+      [notification]="notification"
+    ></app-global-simple-notification>
+    <app-global-typed-notification
+      *ngIf="!notification.isUltimante && notification.type"
+      [notification]="notification">
+    </app-global-typed-notification>
+    <app-global-notification
+      *ngIf="notification.isUltimante"
+      [notification]="notification">
+    </app-global-notification>
+  </div>
 </div>
