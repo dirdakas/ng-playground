@@ -4,6 +4,7 @@ import { AnimationBuilder } from '@angular/animations';
 import { NotificationTypeEnum } from './../../enums/notificationType.enum';
 import { IGlobalNotification } from './../../interfaces/global-notification';
 import { GlobalNotificationsService } from './global-notifications.service';
+import { ColorEnum } from './../../enums/color.enum';
 
 describe('GlobalNotificationsService', () => {
   let globalNotificationsService: GlobalNotificationsService;
@@ -220,7 +221,7 @@ describe('GlobalNotificationsService', () => {
             type: 6,
             styles: {
               opacity: 0,
-              backgroundColor: '#ffffff'
+              backgroundColor: ColorEnum.white
             },
             offset: null
           },
@@ -229,7 +230,7 @@ describe('GlobalNotificationsService', () => {
             styles: {
               type: 6,
               styles: {
-                backgroundColor: 'lightblue',
+                backgroundColor: ColorEnum.lightBlue,
                 opacity: 1,
                 padding: '15px 8px'
               },
@@ -242,8 +243,8 @@ describe('GlobalNotificationsService', () => {
             styles: {
               type: 6,
               styles: {
-                backgroundColor: '#befbff',
-                color: '#5bc0de',
+                backgroundColor: ColorEnum.infoLight,
+                color: ColorEnum.infoDark,
                 opacity: 1,
                 padding: '10px 5px'
               },
@@ -271,7 +272,7 @@ describe('GlobalNotificationsService', () => {
             type: 6,
             styles: {
               opacity: 0,
-              backgroundColor: '#ffffff'
+              backgroundColor: ColorEnum.white
             },
             offset: null
           },
@@ -280,7 +281,7 @@ describe('GlobalNotificationsService', () => {
             styles: {
               type: 6,
               styles: {
-                backgroundColor: 'lightblue',
+                backgroundColor: ColorEnum.lightBlue,
                 opacity: 1,
                 padding: '15px 8px'
               },
@@ -293,8 +294,8 @@ describe('GlobalNotificationsService', () => {
             styles: {
               type: 6,
               styles: {
-                backgroundColor: '#f5c2ed',
-                color: '#d9534f',
+                backgroundColor: ColorEnum.errorLight,
+                color: ColorEnum.errorDark,
                 opacity: 1,
                 padding: '10px 5px'
               },
@@ -322,7 +323,7 @@ describe('GlobalNotificationsService', () => {
             type: 6,
             styles: {
               opacity: 0,
-              backgroundColor: '#ffffff'
+              backgroundColor: ColorEnum.white
             },
             offset: null
           },
@@ -331,7 +332,7 @@ describe('GlobalNotificationsService', () => {
             styles: {
               type: 6,
               styles: {
-                backgroundColor: 'lightblue',
+                backgroundColor: ColorEnum.lightBlue,
                 opacity: 1,
                 padding: '15px 8px'
               },
@@ -344,8 +345,8 @@ describe('GlobalNotificationsService', () => {
             styles: {
               type: 6,
               styles: {
-                backgroundColor: '#ddfdd1',
-                color: '#5cb85c',
+                backgroundColor: ColorEnum.successLight,
+                color: ColorEnum.successDark,
                 opacity: 1,
                 padding: '10px 5px'
               },
@@ -373,7 +374,7 @@ describe('GlobalNotificationsService', () => {
             type: 6,
             styles: {
               opacity: 0,
-              backgroundColor: '#ffffff'
+              backgroundColor: ColorEnum.white
             },
             offset: null
           },
@@ -382,7 +383,7 @@ describe('GlobalNotificationsService', () => {
             styles: {
               type: 6,
               styles: {
-                backgroundColor: 'lightblue',
+                backgroundColor: ColorEnum.lightBlue,
                 opacity: 1,
                 padding: '15px 8px'
               },
@@ -395,8 +396,8 @@ describe('GlobalNotificationsService', () => {
             styles: {
               type: 6,
               styles: {
-                backgroundColor: '#f8fdd7',
-                color: '#f0ad4e',
+                backgroundColor: ColorEnum.warningLight,
+                color: ColorEnum.warningDark,
                 opacity: 1,
                 padding: '10px 5px'
               },
@@ -424,7 +425,7 @@ describe('GlobalNotificationsService', () => {
             type: 6,
             styles: {
               opacity: 0,
-              backgroundColor: '#ffffff'
+              backgroundColor: ColorEnum.white
             },
             offset: null
           },
@@ -433,7 +434,7 @@ describe('GlobalNotificationsService', () => {
             styles: {
               type: 6,
               styles: {
-                backgroundColor: 'lightblue',
+                backgroundColor: ColorEnum.lightBlue,
                 opacity: 1,
                 padding: '15px 8px'
               },
@@ -446,8 +447,8 @@ describe('GlobalNotificationsService', () => {
             styles: {
               type: 6,
               styles: {
-                backgroundColor: '#ffeded',
-                color: '#ff6600',
+                backgroundColor: ColorEnum.fairPink,
+                color: ColorEnum.blazeOrange,
                 opacity: 1,
                 padding: '10px 5px'
               },
@@ -473,7 +474,7 @@ describe('GlobalNotificationsService', () => {
           type: 6,
           styles: {
             opacity: 1,
-            transform: 'translateY(0)'
+            transform: 'translateY(0px)'
           },
           offset: null
         },

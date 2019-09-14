@@ -1,0 +1,24 @@
+<div class="app-forms-page">
+  <div class="template-wrapper">
+    <button
+      class="collapsible"
+      (click)="showContent(templatesDriven)">
+      Toggle for CSS animation list:
+    </button>
+    <div class="content"
+         #templatesDriven
+         style="display: none;">
+      <div *ngFor="let item of templateDrivenList; let index = index;"
+           class="template-item-wrapper">
+        <button class="collapsible"
+                (click)="toggleTemplate(templateDrivenWrap, index)">
+          <b>Toggle to show/hide: </b>
+          <i>{{ item.description }}</i>
+        </button>
+        <div class="content content-template-wrapper" #templateDrivenWrap style="display: none;">
+          <template #templateDriven></template>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

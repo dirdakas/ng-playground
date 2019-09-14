@@ -1,0 +1,64 @@
+:host {
+  .collapsible {
+    color: #ffffff;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+  }
+
+  .app-forms-page {
+    .template-wrapper {
+      .collapsible {
+        background-color: #83319c;
+      }
+  
+      .active, .collapsible:hover {
+        background-color:#9e65af;
+      }
+
+      .content {
+        background-color: #e4b9f1;
+        padding-right: 0;
+      }
+
+      .template-item-wrapper {
+        .collapsible {
+          background-color: #1466a2;
+        }
+
+        .active, .collapsible:hover {
+          background-color: #5198cc;
+        }
+
+        .content {
+          background-color: #f1f1f18a;
+        }
+      }
+    }
+  }
+
+  .content {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+
+    .content-template-wrapper {
+      padding: 15px;
+    }
+  }
+  
+  .right-side {
+    float: right;
+  }
+  
+  .visible-text {
+    border: 1px solid darkblue;
+    background-color: lightblue;
+    padding: 10px;
+    margin: 10px 0;
+  }
+}

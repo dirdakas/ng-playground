@@ -8,6 +8,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { GlobalNotificationsPageComponent } from './pages/global-notifications-page/global-notifications-page.component';
 import { DirectivesComponent } from './pages/directives/directives.component';
+import { FormsPageComponent } from './pages/forms-page/forms-page.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -17,7 +18,8 @@ const appRoutes: Routes = [
   { path: 'directives', component: DirectivesComponent },
   { path: 'global-notifications-page', component: GlobalNotificationsPageComponent },
   { path: 'login', component: LoginComponent },
-  { path: '404', component: NotFoundComponent }
+  { path: '404', component: NotFoundComponent },
+  { path: 'forms', component: FormsPageComponent },
 ];
 
 @NgModule({

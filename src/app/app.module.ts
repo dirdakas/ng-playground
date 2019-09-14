@@ -1,3 +1,4 @@
+import { FormsPageModule } from './pages/forms-page/forms-page.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA, ErrorHandler } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -44,6 +45,7 @@ import { NotFoundModule } from './pages/not-found/not-found.module';
     HeaderModule,
     DirectivesModule,
     NotFoundModule,
+    FormsPageModule,
   ],
   providers: [
     GlobalNotificationsService,

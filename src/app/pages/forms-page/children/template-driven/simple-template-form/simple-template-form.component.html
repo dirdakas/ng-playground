@@ -1,0 +1,12 @@
+<form (ngSubmit)="onSubmit(f)" #f="ngForm">
+  <label for="simpleInput">Text input:</label>
+  <input id="simpleInput"
+         ngModel
+         required
+         #textInput="ngModel"
+         name="simpleInput"
+         type="text" />
+  <p *ngIf="textInput.invalid && textInput.touched">Type something to the input</p>
+  <button type="submit"
+          [disabled]="f.invalid">Submit</button>
+</form>
