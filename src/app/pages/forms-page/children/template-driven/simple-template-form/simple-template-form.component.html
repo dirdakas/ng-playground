@@ -1,12 +1,28 @@
 <form (ngSubmit)="onSubmit(f)" #f="ngForm">
-  <label for="simpleInput">Text input:</label>
-  <input id="simpleInput"
-         ngModel
-         required
-         #textInput="ngModel"
-         name="simpleInput"
-         type="text" />
-  <p *ngIf="textInput.invalid && textInput.touched">Type something to the input</p>
+  <div>
+    <label for="simpleInput">Text input:</label>
+    <input id="simpleInput"
+          ngModel
+          required
+          #textInput="ngModel"
+          name="simpleInput"
+          type="text" />
+    <p *ngIf="textInput.invalid && textInput.touched">Type something to the input</p>
+  </div>
+  <div>
+    <label for="simpleDropdown">Select animal:</label>
+    <select
+      id="simpleDropdown"
+      required
+      [ngModel]="defaultOption"
+      #simpleDropdown="ngModel"
+      name="simpleDropdown"
+      type="text">
+      <option value="Cat">Cat</option>
+      <option value="Mouse">Mouse</option>
+      <option value="Dog">Dog</option>
+    </select>
+  </div>
   <button type="submit"
           [disabled]="f.invalid">Submit</button>
 </form>

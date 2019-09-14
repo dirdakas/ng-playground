@@ -1,8 +1,14 @@
-import { Component, ViewChildren, ViewContainerRef, ComponentRef } from '@angular/core';
+import {
+  Component,
+  ViewChildren,
+  ViewContainerRef,
+  ComponentRef,
+} from '@angular/core';
 
 import { IExampleObject } from './../../interfaces/example-object';
 import { SimpleTemplateFormComponent } from './children/template-driven/simple-template-form/simple-template-form.component';
 import { DynamicComponentCreationService } from './../../shared/dynamic-component-creation/dynamic-component-creation.service';
+import { ComplexTemplateFormComponent } from './children/template-driven/complex-template-form/complex-template-form.component';
 
 @Component({
   selector: 'app-forms-page',
@@ -17,6 +23,10 @@ export class FormsPageComponent {
     {
       component: SimpleTemplateFormComponent,
       description: 'Simple example of template driven form'
+    },
+    {
+      component: ComplexTemplateFormComponent,
+      description: 'Complex form with different formGroups, reset etc.'
     }
   ];
 

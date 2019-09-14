@@ -1,19 +1,19 @@
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { SimpleTemplateFormComponent } from './simple-template-form.component';
+import { ComplexTemplateFormComponent } from './complex-template-form.component';
 import { GlobalNotificationsService } from './../../../../../services/global-notifications/global-notifications.service';
 
-describe('SimpleTemplateFormComponent', () => {
-  let component: SimpleTemplateFormComponent;
-  let fixture: ComponentFixture<SimpleTemplateFormComponent>;
+describe('ComplexTemplateFormComponent', () => {
+  let component: ComplexTemplateFormComponent;
+  let fixture: ComponentFixture<ComplexTemplateFormComponent>;
 
   let globalNotificationsService: jasmine.SpyObj<GlobalNotificationsService>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SimpleTemplateFormComponent ],
+      declarations: [ ComplexTemplateFormComponent ],
       imports: [
         ReactiveFormsModule,
         FormsModule,
@@ -32,10 +32,9 @@ describe('SimpleTemplateFormComponent', () => {
 
     globalNotificationsService = TestBed.get(GlobalNotificationsService);
 
-    fixture = TestBed.createComponent(SimpleTemplateFormComponent);
+    fixture = TestBed.createComponent(ComplexTemplateFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-
   }));
 
   it('should create', () => {
